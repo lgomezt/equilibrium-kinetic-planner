@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "reviewed": "2026-10-10",
+  "scope": "Reference planner for generally healthy nonpregnant adults. It constrains generated quantities, not unmeasured total intake or individual contraindications. Do not describe the output as personally safe or interaction-free.",
+  "assumptions": [
+    "No pregnancy or breastfeeding",
+    "No kidney disease or other diagnosed condition",
+    "No regular medication",
+    "No other supplements or caffeine",
+    "Caffeine is optional, early-day and at least 8 hours before bedtime"
+  ],
+  "rules": [
+    {
+      "id": "fixed-dose",
+      "type": "product-rule",
+      "description": "Priorities determine inclusion, never multiply doses. One dose per compound even with overlapping goals."
+    },
+    {
+      "id": "caffeine-conflict",
+      "type": "product-rule",
+      "description": "Exclude caffeine when Sleep or Calm matches/exceeds Focus/Energy, or either reaches 4. Preference cutoff is not a clinical safety threshold."
+    },
+    {
+      "id": "no-indication",
+      "type": "evidence-rule",
+      "description": "No automatic magnesium, vitamin D, omega-3, melatonin, or theanine. Missing indication or long-term evidence is not filled in by priorities."
+    }
+  ],
+  "constraints": [
+    {
+      "id": "creatine",
+      "plannerCap": 3000,
+      "unit": "mg/day",
+      "establishedUpperLimit": null,
+      "limitKind": "No established tolerable upper intake limit; 3 g/day is a conservative planner choice, not an official safety limit.",
+      "effectiveMinimum": 3000,
+      "adverseEffects": [
+        "Water-related weight gain",
+        "Gastrointestinal discomfort"
+      ],
+      "exclusions": [
+        "Kidney disease or unknown renal suitability",
+        "Pregnancy/breastfeeding",
+        "Medication use without professional review"
+      ],
+      "sources": [
+        "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+        "https://www.nccih.nih.gov/health/bodybuilding-and-performance-enhancement-supplements"
+      ]
+    },
+    {
+      "id": "caffeine",
+      "plannerCap": 75,
+      "unit": "mg/day",
+      "establishedUpperLimit": null,
+      "limitKind": "EFSA safety assessment levels, not a nutrient UL or recommended target.",
+      "assessmentLevels": [
+        {
+          "value": 200,
+          "unit": "mg",
+          "scope": "Single dose from all sources in healthy adults"
+        },
+        {
+          "value": 400,
+          "unit": "mg/day",
+          "scope": "Habitual intake from all sources in healthy nonpregnant adults"
+        }
+      ],
+      "adverseEffects": [
+        "Insomnia",
+        "Anxiety or jitteriness",
+        "Palpitations"
+      ],
+      "interactions": [
+        "Other caffeine and stimulant products add to exposure",
+        "Medication interactions require review"
+      ],
+      "exclusions": [
+        "Caffeine sensitivity",
+        "Pregnancy/breastfeeding",
+        "Known rhythm disorder or diagnosed anxiety",
+        "Other intake or timing not compatible with the assumed reference conditions"
+      ],
+      "sources": [
+        "https://www.efsa.europa.eu/en/topics/topic/caffeine",
+        "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits"
+      ]
+    },
+    {
+      "id": "theanine",
+      "plannerCap": 0,
+      "unit": "mg/day",
+      "establishedUpperLimit": null,
+      "limitKind": "No established UL. Short-term trial tolerability does not define a universal safe daily ceiling.",
+      "interactions": [
+        "Medication and blood-pressure context not assessed"
+      ],
+      "exclusions": [
+        "Automatic daily reference use",
+        "Pregnancy/breastfeeding",
+        "Medication use without review"
+      ],
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/42410082/",
+        "https://www.fda.gov/media/182086/download"
+      ]
+    },
+    {
+      "id": "magnesium",
+      "plannerCap": 0,
+      "unit": "mg elemental/day",
+      "establishedUpperLimit": 350,
+      "limitKind": "US adult UL applies to supplements and medications only; naturally occurring food magnesium excluded.",
+      "additionalLimits": [
+        {
+          "value": 250,
+          "unit": "mg elemental/day",
+          "scope": "EU: readily dissociable magnesium salts and compounds in supplemental/added sources; naturally present food magnesium excluded."
+        }
+      ],
+      "adverseEffects": [
+        "Diarrhea",
+        "Nausea",
+        "Toxicity risk increases with kidney impairment"
+      ],
+      "interactions": [
+        "Oral bisphosphonates: separate by at least 2 hours",
+        "Tetracycline/quinolone antibiotics: take at least 2 hours before or 4\u20136 hours after magnesium",
+        "Diuretics and proton-pump inhibitors can affect magnesium status"
+      ],
+      "sources": [
+        "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+        "https://www.efsa.europa.eu/sites/default/files/2023-11/ul_summary_tables-version-8.pdf"
+      ]
+    },
+    {
+      "id": "vitamin-d",
+      "plannerCap": 0,
+      "establishedUpperLimit": 4000,
+      "unit": "IU/day",
+      "limitKind": "Adult UL from all oral sources; equivalent to 100 micrograms/day.",
+      "adverseEffects": [
+        "Hypercalcemia",
+        "Kidney stones or kidney injury"
+      ],
+      "interactions": [
+        "Thiazide diuretics can increase hypercalcemia risk"
+      ],
+      "sources": [
+        "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+      ]
+    },
+    {
+      "id": "omega-3",
+      "plannerCap": 0,
+      "establishedUpperLimit": null,
+      "unit": "mg EPA+DHA/day",
+      "limitKind": "No established nutrient UL for EPA/DHA; reported safety assessment levels are not recommendation targets.",
+      "adverseEffects": [
+        "Gastrointestinal symptoms",
+        "High-dose trials report increased atrial-fibrillation risk"
+      ],
+      "interactions": [
+        "Anticoagulants warrant clinical review and monitoring"
+      ],
+      "sources": [
+        "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+      ]
+    },
+    {
+      "id": "melatonin",
+      "plannerCap": 0,
+      "establishedUpperLimit": null,
+      "unit": "mg/day",
+      "limitKind": "No established UL; long-term safety data insufficient.",
+      "adverseEffects": [
+        "Daytime drowsiness",
+        "Headache or dizziness"
+      ],
+      "interactions": [
+        "Blood thinners and epilepsy require medical supervision"
+      ],
+      "exclusions": [
+        "Routine daily use without circadian indication",
+        "Pregnancy/breastfeeding"
+      ],
+      "sources": [
+        "https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know"
+      ]
+    }
+  ]
+}

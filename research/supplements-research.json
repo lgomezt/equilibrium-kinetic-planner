@@ -1,0 +1,637 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-10",
+  "scope": "Evidence reference for generally healthy adults; requires the separate safety policy before use.",
+  "goals": [
+    "Sleep",
+    "Memory",
+    "Focus",
+    "Strength",
+    "Calm",
+    "Energy"
+  ],
+  "reference_assumptions": [
+    "Adult age 18 or older, not pregnant or breastfeeding.",
+    "No relevant medical conditions, medicines, other supplements, or other caffeine intake.",
+    "Strength means regular resistance or repeated high-intensity training.",
+    "Any caffeine serving is taken in the morning, at least 8 hours before bedtime.",
+    "Balls are dose units in a reference model, not instructions to weigh pure caffeine or manufacture food.",
+    "A single day's visualization does not establish a supplement's immediate benefit."
+  ],
+  "decision": {
+    "reference_automatic_candidates": [
+      "creatine",
+      "caffeine"
+    ],
+    "reference_automatic_qualification": "Only under every visible reference assumption and all goal-specific vetoes. Unknown or failed assumptions mean withhold rather than infer safety. Energy denotes acute alertness only, not correction of unexplained fatigue or all-day energy.",
+    "conditional_candidates": [
+      "l_theanine",
+      "protein",
+      "melatonin"
+    ],
+    "excluded_from_automatic_planning": [
+      "magnesium",
+      "glycine",
+      "l_theanine",
+      "protein",
+      "melatonin"
+    ],
+    "goals_without_automatic_supplement": [
+      "Sleep",
+      "Memory",
+      "Calm"
+    ],
+    "important_overlap_limit": "Creatine has uncertain population-dependent memory findings. L-theanine has limited sleep and stress signals. Neither overlap earns automatic goal coverage."
+  },
+  "model_policy": {
+    "minimum_effective_dose": "Do not count a benefit below its tested or defensible serving threshold.",
+    "dose_response": "Do not imply that more balls produce proportionally more benefit or guarantee an outcome.",
+    "utility_scores": "Any optimizer weights are transparent design heuristics, not percentages of efficacy, health, or goal achievement.",
+    "abstention": "A zero-ball plan is valid, including when all prioritized goals lack an eligible candidate.",
+    "combination": "Evidence for individual ingredients does not validate a combined supplement stack.",
+    "goal_coverage": "Covered means an eligible candidate has a relevant supported claim and reaches its reference dose; it does not mean the goal will be achieved.",
+    "energy_goal": "Acute alertness; not metabolic energy, persistent fatigue treatment, or an all-day productivity promise."
+  },
+  "candidates": [
+    {
+      "id": "creatine",
+      "name": "Creatine monohydrate",
+      "reference_automatic_eligible": true,
+      "eligibility": {
+        "status": "reference_only",
+        "required": [
+          "All reference assumptions",
+          "Strength prioritized with regular resistance or repeated high-intensity exercise"
+        ],
+        "exclusions": [
+          "Outside adult reference assumptions",
+          "No relevant training",
+          "Selection for Memory alone",
+          "Attempt to show an acute same-day strength benefit"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": 250,
+        "unit": "mg",
+        "substance": "creatine monohydrate"
+      },
+      "dose": {
+        "reference_total": 3000,
+        "unit": "mg/day",
+        "minimum_balls": 12,
+        "reference_balls": 12,
+        "reference_maximum_balls": 12,
+        "frequency": "Daily, including rest days; no loading phase",
+        "time_horizon": "Approximately 3 to 4 weeks of daily use before muscle stores and training effects should be expected",
+        "source_ids": [
+          "nih_ods_exercise"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Strength",
+          "claim_strength": "well_supported_for_training",
+          "score_eligible": true,
+          "population": "Adults performing repeated high-intensity activity or resistance training",
+          "claim": "Supports high-intensity exercise capacity and training adaptations over time.",
+          "source_ids": [
+            "nih_ods_exercise"
+          ]
+        },
+        {
+          "goal": "Memory",
+          "claim_strength": "uncertain_population_dependent",
+          "score_eligible": false,
+          "population": "Signals in older or stressed populations; not a reliable general healthy-adult claim",
+          "claim": "Potential overlap remains uncertain and does not establish memory benefit at this 3 g reference dose.",
+          "source_ids": [
+            "creatine_memory_2023",
+            "efsa_creatine_cognition_2024",
+            "creatine_cognition_commentary_2026"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Sleep",
+        "Focus",
+        "Calm",
+        "Energy"
+      ],
+      "short_label": "3 g daily · training support",
+      "limitations": [
+        "Individual response varies",
+        "Does not replace training",
+        "Memory results and doses cannot be carried across populations",
+        "Memory may be annotated as emerging when already selected for Strength, but does not earn goal coverage or select creatine alone."
+      ]
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "reference_automatic_eligible": true,
+      "eligibility": {
+        "status": "reference_only_with_vetoes",
+        "required": [
+          "All reference assumptions",
+          "Focus or Energy prioritized; Energy means acute alertness",
+          "Morning serving at least 8 hours before bedtime",
+          "No other caffeine intake",
+          "Known standardized product dose"
+        ],
+        "exclusions": [
+          "Sleep prioritized",
+          "Calm prioritized",
+          "Unknown other caffeine intake",
+          "Unknown or late timing",
+          "Caffeine sensitivity",
+          "Pure or concentrated caffeine powder preparation"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": 25,
+        "unit": "mg",
+        "substance": "caffeine",
+        "note": "Reference unit only; 25 mg alone does not receive the 75 mg serving claim."
+      },
+      "dose": {
+        "reference_total": 75,
+        "unit": "mg/serving",
+        "minimum_balls": 3,
+        "reference_balls": 3,
+        "reference_maximum_balls": 3,
+        "frequency": "Single morning serving in this model; the three units represent one serving",
+        "time_horizon": "Acute alertness/attention; trial testing approximately 30 minutes after a serving",
+        "all_source_daily_safety_reference_mg": 400,
+        "single_dose_safety_reference_mg": 200,
+        "source_ids": [
+          "efsa_caffeine_alertness_2014",
+          "caffeine_trial_2005",
+          "efsa_caffeine_safety"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Focus",
+          "claim_strength": "supported_for_acute_alertness_attention",
+          "score_eligible": true,
+          "population": "Generally healthy adult caffeine users and nonusers",
+          "claim": "Can improve acute alertness and some attention/reaction-time measures.",
+          "source_ids": [
+            "efsa_caffeine_alertness_2014",
+            "caffeine_trial_2005"
+          ]
+        },
+        {
+          "goal": "Energy",
+          "claim_strength": "supported_for_acute_alertness",
+          "score_eligible": true,
+          "population": "Generally healthy adults",
+          "claim": "Can improve alertness and reduce perceived mental fatigue acutely; not a treatment for persistent fatigue.",
+          "source_ids": [
+            "efsa_caffeine_alertness_2014",
+            "caffeine_trial_2005"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Sleep",
+        "Memory",
+        "Strength",
+        "Calm"
+      ],
+      "short_label": "75 mg once · morning alertness",
+      "limitations": [
+        "Not a memory supplement in this model",
+        "75 mg is not a supported strength-performance dose",
+        "May impair sleep or increase restlessness",
+        "Safety reference ceilings are not intake targets or personal guarantees",
+        "8-hour timing rule is a conservative planner assumption; it does not guarantee unaffected sleep"
+      ]
+    },
+    {
+      "id": "l_theanine",
+      "name": "L-theanine",
+      "reference_automatic_eligible": false,
+      "eligibility": {
+        "status": "conditional_single_dose_reference",
+        "required": [
+          "Separate safety and interaction review",
+          "A single timed serving for an acute attention task",
+          "Standardized L-theanine product"
+        ],
+        "exclusions": [
+          "Routine automatic daily planning",
+          "Unknown interaction profile",
+          "Claim of generalized calm, stress resilience, or sustained productivity",
+          "Claim of proven Sleep coverage"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": 50,
+        "unit": "mg",
+        "substance": "L-theanine",
+        "note": "Research-only unit; not automatically recommended."
+      },
+      "dose": {
+        "reference_total": 200,
+        "unit": "mg/single dose",
+        "minimum_balls": 4,
+        "reference_balls": 4,
+        "frequency": "One dose 30 to 60 minutes before cognitive testing; do not infer chronic daily efficacy or safety",
+        "time_horizon": "Acute task performance",
+        "source_ids": [
+          "theanine_cognition_2026"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Focus",
+          "claim_strength": "promising_short_term_task_specific",
+          "score_eligible": false,
+          "population": "Healthy adults in acute cognitive-testing trials",
+          "claim": "A 200 mg single dose improved choice reaction-time measures in a recent synthesis; sustained everyday productivity was not established.",
+          "source_ids": [
+            "theanine_cognition_2026"
+          ]
+        },
+        {
+          "goal": "Calm",
+          "claim_strength": "limited_high_risk_of_bias",
+          "score_eligible": false,
+          "population": "Healthy and clinical populations with stress-related outcomes",
+          "claim": "Acute stress reduction was modest and driven substantially by high-risk-of-bias studies; anxiety results were inconsistent.",
+          "source_ids": [
+            "theanine_cognition_2026"
+          ]
+        },
+        {
+          "goal": "Sleep",
+          "claim_strength": "limited_subjective_combination_product_evidence",
+          "score_eligible": false,
+          "population": "Mixed ages and health status; many products combined ingredients",
+          "claim": "Subjective sleep signals do not establish an effective pure-L-theanine sleep dose or objective sleep improvement.",
+          "source_ids": [
+            "theanine_sleep_2025"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Memory",
+        "Strength",
+        "Energy"
+      ],
+      "short_label": "200 mg acute study · withheld",
+      "limitations": [
+        "No automatic chronic dosing",
+        "No established official tolerable upper limit located",
+        "No serious events reported in included short trials does not establish broad safety",
+        "2026 review COI: Guillaume Fond founded a company selling dietary supplements"
+      ]
+    },
+    {
+      "id": "magnesium",
+      "name": "Magnesium",
+      "reference_automatic_eligible": false,
+      "eligibility": {
+        "status": "excluded_weak_evidence",
+        "required": [
+          "Established nutritional or clinical indication outside this planner"
+        ],
+        "exclusions": [
+          "Routine sleep or calm recommendation in generally healthy adults",
+          "Selecting an arbitrary nutritional dose as an effective sleep dose"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": 50,
+        "unit": "mg",
+        "substance": "elemental magnesium",
+        "note": "Illustrative unit only; not an established effective sleep dose and never automatically selected."
+      },
+      "dose": {
+        "reference_total": null,
+        "unit": "mg/day elemental magnesium",
+        "minimum_balls": null,
+        "reference_balls": 0,
+        "frequency": "No effective routine sleep dose established for this population",
+        "source_ids": [
+          "magnesium_sleep_2026",
+          "magnesium_sleep_2021"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Sleep",
+          "claim_strength": "low_to_very_low_certainty",
+          "score_eligible": false,
+          "population": "Adults with heterogeneous sleep complaints; older-adult trials do not establish benefit for all healthy adults",
+          "claim": "Findings are inconsistent and do not support routine magnesium use for insomnia.",
+          "source_ids": [
+            "magnesium_sleep_2026",
+            "magnesium_sleep_2021"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Memory",
+        "Focus",
+        "Strength",
+        "Calm",
+        "Energy"
+      ],
+      "short_label": "Sleep evidence weak · withheld",
+      "limitations": [
+        "Elemental magnesium must not be confused with total salt weight",
+        "Correcting deficiency is a different indication from improving a goal in a nondeficient adult"
+      ]
+    },
+    {
+      "id": "protein",
+      "name": "Protein",
+      "reference_automatic_eligible": false,
+      "eligibility": {
+        "status": "conditional_food_gap",
+        "required": [
+          "Regular resistance training",
+          "Known total dietary intake and a protein gap",
+          "Count food protein and check product allergens"
+        ],
+        "exclusions": [
+          "Unknown diet or body mass",
+          "Protein already adequate",
+          "Using an identical fixed supplement dose for everyone"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": 5,
+        "unit": "g",
+        "substance": "protein",
+        "note": "Nutrient quantity, not powder mass; research-only illustration."
+      },
+      "dose": {
+        "reference_total": null,
+        "unit": "g/day",
+        "minimum_balls": null,
+        "reference_balls": 0,
+        "frequency": "Fill an assessed food-dependent gap; not a universal 20 g/day supplement prescription",
+        "source_ids": [
+          "protein_meta_2018"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Strength",
+          "claim_strength": "supported_with_training_and_intake_context",
+          "score_eligible": false,
+          "population": "Healthy adults undertaking prolonged resistance training",
+          "claim": "Supplementation can modestly augment training gains; total protein intake matters more than adding a universal serving.",
+          "source_ids": [
+            "protein_meta_2018"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Sleep",
+        "Memory",
+        "Focus",
+        "Calm",
+        "Energy"
+      ],
+      "short_label": "Food-dependent · withheld",
+      "limitations": [
+        "An approximate 1.6 g/kg/day plateau for fat-free-mass gain is a population estimate, not a universal minimum requirement or personal prescription"
+      ]
+    },
+    {
+      "id": "glycine",
+      "name": "Glycine",
+      "reference_automatic_eligible": false,
+      "eligibility": {
+        "status": "excluded_small_high_bias_sleep_trials",
+        "required": [
+          "Further higher-quality trials"
+        ],
+        "exclusions": [
+          "Routine sleep, focus, or resilience recommendation"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": 500,
+        "unit": "mg",
+        "substance": "glycine",
+        "note": "Research illustration only."
+      },
+      "dose": {
+        "reference_total": 3000,
+        "unit": "mg/studied bedtime serving",
+        "minimum_balls": 6,
+        "reference_balls": 0,
+        "frequency": "Studies used 3 g before bedtime over very short periods; not a validated planner prescription",
+        "source_ids": [
+          "glycine_review_2023"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Sleep",
+          "claim_strength": "limited_small_high_bias_studies",
+          "score_eligible": false,
+          "population": "Small healthy-adult studies",
+          "claim": "Early sleep findings have insufficient quality for automatic selection.",
+          "source_ids": [
+            "glycine_review_2023"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Memory",
+        "Focus",
+        "Strength",
+        "Calm",
+        "Energy"
+      ],
+      "short_label": "Sleep trials too limited · withheld",
+      "limitations": [
+        "An amount used in a study is not automatically an effective or recommended dose"
+      ]
+    },
+    {
+      "id": "melatonin",
+      "name": "Melatonin",
+      "reference_automatic_eligible": false,
+      "eligibility": {
+        "status": "conditional_circadian_indication_outside_screen",
+        "required": [
+          "Specific circadian or jet-lag indication",
+          "Appropriate timing and medication review"
+        ],
+        "exclusions": [
+          "Routine general Sleep goal",
+          "Chronic insomnia recommendation",
+          "Unspecified timing in a one-screen day plan"
+        ]
+      },
+      "quantity_per_ball": {
+        "value": null,
+        "unit": "mg",
+        "substance": "melatonin",
+        "note": "No ball dose assigned because indication and timing are absent."
+      },
+      "dose": {
+        "reference_total": null,
+        "unit": "mg",
+        "minimum_balls": null,
+        "reference_balls": 0,
+        "frequency": "Indication-specific; no general dose assigned",
+        "source_ids": [
+          "nccih_sleep"
+        ]
+      },
+      "benefits": [
+        {
+          "goal": "Sleep",
+          "claim_strength": "supported_for_specific_circadian_problems_only",
+          "score_eligible": false,
+          "population": "Some jet-lag or shift-related sleep problems; not all healthy-adult sleep priorities",
+          "claim": "Possible usefulness for selected circadian problems does not justify routine automatic sleep planning.",
+          "source_ids": [
+            "nccih_sleep"
+          ]
+        }
+      ],
+      "excluded_goals": [
+        "Memory",
+        "Focus",
+        "Strength",
+        "Calm",
+        "Energy"
+      ],
+      "short_label": "Timing-specific · withheld",
+      "limitations": [
+        "Long-term safety is not established",
+        "Guidelines cited by NCCIH advise against use for chronic insomnia"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "nih_ods_exercise",
+      "title": "NIH ODS: Dietary Supplements for Exercise and Athletic Performance",
+      "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+      "type": "official_evidence_summary",
+      "verified": "Relevant creatine efficacy, monohydrate form, no-loading 3–6 g/day protocol and 3–4-week duration."
+    },
+    {
+      "id": "efsa_caffeine_alertness_2014",
+      "title": "EFSA: Caffeine and increased alertness (2014)",
+      "url": "https://efsa.onlinelibrary.wiley.com/doi/epdf/10.2903/j.efsa.2014.3574",
+      "doi": "10.2903/j.efsa.2014.3574",
+      "type": "official_scientific_opinion",
+      "verified": "Reiterates 75 mg serving threshold; most outcomes below 75 mg were null. Scientific substantiation is not a claim of EU marketing authorization."
+    },
+    {
+      "id": "caffeine_trial_2005",
+      "title": "Haskell et al.: Cognitive and mood improvements of caffeine in habitual consumers and habitual non-consumers",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15678363/",
+      "doi": "10.1007/s00213-004-2104-3",
+      "type": "randomized_crossover_trial",
+      "verified": "48 adults; 75 or 150 mg drink; acute attention/alertness measures 30 minutes after intake."
+    },
+    {
+      "id": "efsa_caffeine_safety",
+      "title": "EFSA: Caffeine safety",
+      "url": "https://www.efsa.europa.eu/en/topics/topic/caffeine",
+      "type": "official_safety_summary",
+      "verified": "Healthy nonpregnant adult references: 200 mg single intake and 400 mg daily from all sources; even 100 mg near bedtime can affect sleep."
+    },
+    {
+      "id": "creatine_memory_2023",
+      "title": "Prokopidis et al.: Effects of creatine supplementation on memory in healthy individuals",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35984306/",
+      "doi": "10.1093/nutrit/nuac064",
+      "type": "systematic_review_meta_analysis",
+      "verified": "Older-adult subgroup signal; younger subgroup null. Later methodological criticism means pooled cognition findings should not stand alone."
+    },
+    {
+      "id": "efsa_creatine_cognition_2024",
+      "title": "EFSA: Creatine and improvement in cognitive function",
+      "url": "https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2024.9100",
+      "doi": "10.2903/j.efsa.2024.9100",
+      "type": "official_scientific_opinion",
+      "verified": "A general cause-and-effect cognition claim was not established."
+    },
+    {
+      "id": "creatine_cognition_commentary_2026",
+      "title": "Citherlet: Commentary on the effects of creatine supplementation on cognitive function",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42039906/",
+      "doi": "10.3389/fnut.2026.1716285",
+      "type": "methodological_commentary",
+      "verified": "Raises double-counting/nonindependent-outcome concerns in cognition meta-analysis; record used as a reason for caution, not efficacy evidence."
+    },
+    {
+      "id": "theanine_cognition_2026",
+      "title": "Gerolymos et al.: Cognitive and affective effects of L-Theanine: a systematic review and meta-analysis of 31 randomized trials",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42410082/",
+      "doi": "10.1038/s41380-026-03727-9",
+      "published": "2026-07-06",
+      "type": "systematic_review_meta_analysis",
+      "verified": "31 trials, 1168 total participants; acute 200 mg attention signal; stress high-bias, anxiety inconsistent, no fatigue effect. Full publisher article unavailable; PubMed abstract and conflict statement inspected.",
+      "conflicts_of_interest": "Guillaume Fond founded a company selling dietary supplements."
+    },
+    {
+      "id": "theanine_sleep_2025",
+      "title": "Bulman et al.: The effects of L-theanine consumption on sleep outcomes",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1087079225000292",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40056718/",
+      "doi": "10.1016/j.smrv.2025.102076",
+      "type": "systematic_review_meta_analysis",
+      "verified": "19 articles, 897 participants; subjective but no objective sleep benefit; many combined ingredients, adequate pure-theanine dose unresolved."
+    },
+    {
+      "id": "magnesium_sleep_2026",
+      "title": "Lopresti et al.: Magnesium Supplementation for Sleep in Adults",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42661485/",
+      "doi": "10.1080/19390211.2026.2719670",
+      "published": "2026-08-28",
+      "type": "systematic_review",
+      "verified": "12 main sleep RCTs; heterogeneous outcomes and formulations, low to very low certainty; routine insomnia use unsupported."
+    },
+    {
+      "id": "magnesium_sleep_2021",
+      "title": "Mah and Pitre: Oral magnesium supplementation for insomnia in older adults",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33865376/",
+      "doi": "10.1186/s12906-021-03297-z",
+      "type": "systematic_review_meta_analysis",
+      "verified": "Three trials, 151 older adults, moderate-to-high bias and low/very-low certainty; not a general healthy-adult dose recommendation."
+    },
+    {
+      "id": "protein_meta_2018",
+      "title": "Morton et al.: Protein supplementation and resistance-training gains in healthy adults",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+      "doi": "10.1136/bjsports-2017-097608",
+      "type": "systematic_review_meta_analysis",
+      "verified": "49 studies, 1863 participants; modest extra training gains and an approximate 1.6 g/kg/day total-intake plateau for fat-free-mass gain."
+    },
+    {
+      "id": "glycine_review_2023",
+      "title": "The effect of glycine administration on physiological systems in human adults",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10828290/",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37851316/",
+      "type": "systematic_review",
+      "verified": "3 g bedtime sleep studies were short, small and high risk of bias."
+    },
+    {
+      "id": "nccih_sleep",
+      "title": "NCCIH: Sleep Disorders and Complementary Health Approaches",
+      "url": "https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches",
+      "type": "official_evidence_summary",
+      "verified": "Melatonin usefulness is indication-dependent; chronic-insomnia guidelines advise against it; short-term versus long-term safety differs."
+    }
+  ],
+  "display_candidate_ids": [
+    "creatine",
+    "caffeine",
+    "l_theanine",
+    "magnesium"
+  ]
+}

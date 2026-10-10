@@ -1,0 +1,653 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-10",
+  "purpose": "Official-source safety reference for an educational supplement-priority planner; not an individual clearance or prescription.",
+  "population": "Generally healthy nonpregnant adults age 18 or older. Individual eligibility is unknown when the interface collects only priorities.",
+  "globalPolicy": {
+    "defaultHealthStatus": "unknown",
+    "missingInformationAction": "withhold-personal-recommendation",
+    "referenceDisplayAllowed": true,
+    "referenceDisplayLabel": "Adult reference option; health, medicines and current intake not checked.",
+    "referenceScenarioAssumptions": [
+      "generally healthy adult age 18 or older",
+      "not pregnant, trying to conceive or breastfeeding",
+      "no medications or other supplements",
+      "no other caffeine intake",
+      "no kidney disease",
+      "no caffeine sensitivity",
+      "caffeine only in the morning and at least 8 hours before bedtime"
+    ],
+    "referenceScenarioAutoSelection": "Creatine for Strength and a 75 mg caffeine serving for Focus may be selected within this explicitly stated hypothetical adult scenario. It is not a verified personal recommendation; unknown actual user intake remains unknown.",
+    "noAutomaticAdditionWhenUnknown": [
+      "magnesium",
+      "vitamin-d",
+      "omega-3",
+      "melatonin",
+      "protein",
+      "l-theanine"
+    ],
+    "referenceOnlyCandidates": [
+      "creatine",
+      "caffeine"
+    ],
+    "universalScreeningRequired": [
+      "adult age",
+      "pregnancy or breastfeeding",
+      "kidney or significant liver disease",
+      "regular prescription and over-the-counter medicines",
+      "other supplements and fortified products",
+      "allergy or prior adverse reaction"
+    ],
+    "conservativeExclusions": [
+      "under 18",
+      "pregnant, trying to conceive or breastfeeding",
+      "kidney disease or renal impairment",
+      "significant liver disease",
+      "medication interactions not reviewed",
+      "planned surgery requiring clinician review"
+    ],
+    "exclusionStatus": "Product abstention policy. These are not assertions that every ingredient is harmful in every listed circumstance.",
+    "limitsAreNotTargets": true,
+    "noEstablishedUlMeans": "No recognized numeric tolerable upper limit in the cited guidance; it does not mean unlimited intake is safe.",
+    "productQuality": "Prefer accurately labeled single-ingredient products with independent quality testing. FDA does not approve supplements for safety and effectiveness before marketing.",
+    "sourceIds": [
+      "nccih-wise",
+      "fda-supplements",
+      "opss-creatine"
+    ]
+  },
+  "ingredients": [
+    {
+      "id": "creatine",
+      "name": "Creatine monohydrate",
+      "plannerStatus": "adult-reference-only-unless-screened",
+      "referenceDose": {
+        "value": 3000,
+        "unit": "mg creatine monohydrate/day",
+        "frequency": "daily",
+        "loading": false,
+        "basis": "Conservative product reference within NIH ODS typical 3-5 g/day maintenance; not a UL."
+      },
+      "upperLimits": [
+        {
+          "value": null,
+          "unit": "mg/day",
+          "type": "no-established-ul-in-cited-guidance",
+          "scope": "Do not substitute study high doses for a population UL."
+        }
+      ],
+      "productCap": {
+        "value": 3000,
+        "unit": "mg creatine monohydrate/day",
+        "type": "product-policy-not-ul"
+      },
+      "doseAccounting": "Count all creatine-containing products. Label the monohydrate mass consistently; do not silently interchange creatine base and monohydrate.",
+      "adverseEffects": [
+        "water-related weight gain",
+        "possible gastrointestinal upset or bloating"
+      ],
+      "screening": [
+        "kidney disease or kidney-risk history requires clinician review",
+        "pregnancy and breastfeeding excluded by conservative planner policy",
+        "medicines and current supplements must be reviewed"
+      ],
+      "missingInformationCopy": "3 g/day is an adult training reference. Kidney health and medicines are unverified, so this is not personal clearance.",
+      "priorityConstraints": [
+        "Strength benefit presumes ongoing high-intensity or resistance training.",
+        "Do not automatically increase the dose when Focus, Calm, Memory or Energy or Strength sliders rise.",
+        "Do not claim established healthy-adult cognitive enhancement or endurance benefit from this reference dose."
+      ],
+      "sources": [
+        "ods-performance",
+        "nccih-bodybuilding",
+        "opss-creatine"
+      ],
+      "prototypeUnits": {
+        "mgPerBall": 250,
+        "referenceBallsPerDay": 12,
+        "totalMgPerDay": 3000,
+        "massBasis": "creatine monohydrate"
+      }
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "plannerStatus": "conditional-reference-only",
+      "referenceDose": {
+        "min": 50,
+        "max": 100,
+        "unit": "mg caffeine",
+        "frequency": "at most one early-day serving",
+        "basis": "Conservative product range, not a government recommended intake. If modeled at 25 mg per item, three together provide a 75 mg reference serving."
+      },
+      "upperLimits": [
+        {
+          "value": 400,
+          "unit": "mg/day",
+          "type": "adult-safety-reference-not-formal-nutrient-ul",
+          "scope": "All caffeine sources combined in most healthy nonpregnant adults; individual sensitivity and medications can require less.",
+          "authority": "FDA and EFSA"
+        },
+        {
+          "value": 200,
+          "unit": "mg/single dose",
+          "type": "adult-safety-reference-not-formal-nutrient-ul",
+          "scope": "All sources in the same occasion for the general healthy adult population.",
+          "authority": "EFSA"
+        },
+        {
+          "value": 200,
+          "unit": "mg/day",
+          "type": "pregnancy-reference-not-planner-eligibility",
+          "scope": "EFSA pregnancy/lactation all-source reference; the planner excludes these populations rather than generating a dose.",
+          "authority": "EFSA"
+        }
+      ],
+      "productCap": {
+        "value": 75,
+        "unit": "mg/day added by planner",
+        "type": "product-policy-not-ul"
+      },
+      "doseAccounting": "Count coffee, tea, chocolate, energy drinks, pre-workout products, supplements and medicines. Unknown baseline intake prevents a checked all-source total; never assume it is zero.",
+      "adverseEffects": [
+        "sleep disruption",
+        "anxiety or jitters",
+        "palpitations or increased heart rate",
+        "blood pressure increase",
+        "nausea or stomach upset"
+      ],
+      "screening": [
+        "caffeine sensitivity or prior adverse effects",
+        "pregnancy or breastfeeding",
+        "heart or blood pressure conditions",
+        "anxiety or insomnia",
+        "medications or other stimulants",
+        "bedtime and existing caffeine intake"
+      ],
+      "timing": {
+        "minimumHoursBeforeBed": 8,
+        "basis": "Conservative product rule based on NIH NHLBI guidance that caffeine effects can last up to 8 hours; no guarantee of no sleep effect.",
+        "whenBedtimeUnknown": "morning-reference-only; do not fabricate a personal cutoff"
+      },
+      "missingInformationCopy": "Morning-only reference. Your existing caffeine and sleep timing are unknown; the all-source total has not been checked.",
+      "priorityConstraints": [
+        "Sleep can veto caffeine even if Focus is high.",
+        "When Sleep or Calm is dominant, select a nonstimulant approach or abstain instead of escalating caffeine.",
+        "Do not add melatonin or magnesium to compensate for caffeine-related sleep loss.",
+        "Never offer bulk pure caffeine powders or concentrated liquids.",
+        "Rising Focus cannot push dose beyond the product cap; ranking changes inclusion, not unlimited dose."
+      ],
+      "sources": [
+        "fda-caffeine",
+        "efsa-caffeine",
+        "nhlbi-sleep",
+        "fda-pure-caffeine"
+      ],
+      "prototypeUnits": {
+        "mgPerBall": 25,
+        "referenceBallsPerServing": 3,
+        "maxReferenceServingsPerDay": 1,
+        "totalMgPerDay": 75,
+        "timing": "single morning serving; at least 8 hours before bedtime"
+      }
+    },
+    {
+      "id": "magnesium",
+      "name": "Magnesium",
+      "plannerStatus": "withhold-auto-add",
+      "referenceDose": {
+        "min": 100,
+        "max": 200,
+        "unit": "mg elemental magnesium/day",
+        "frequency": "only if a dietary shortfall or clinician-supported need is established",
+        "basis": "Conservative product range; not a proven healthy-adult sleep dose."
+      },
+      "upperLimits": [
+        {
+          "value": 350,
+          "unit": "mg elemental magnesium/day",
+          "type": "established-ul",
+          "scope": "U.S. adults: magnesium from supplements and medications only. Naturally present food magnesium is excluded.",
+          "authority": "U.S. FNB via NIH ODS"
+        },
+        {
+          "value": 250,
+          "unit": "mg elemental magnesium/day",
+          "type": "established-ul",
+          "scope": "EU adults: readily dissociable magnesium salts and compounds such as MgO in supplements, water or added to foods; excludes magnesium naturally present in foods and beverages.",
+          "authority": "SCF/EFSA"
+        }
+      ],
+      "productCap": {
+        "value": 200,
+        "unit": "mg elemental magnesium/day added by planner",
+        "type": "product-policy-not-ul"
+      },
+      "doseAccounting": "Use elemental magnesium on the Supplement Facts panel, not the mass of glycinate/citrate/other compound. Include multivitamins, antacids and laxatives in the U.S. supplemental total; consider fortified sources for the EFSA scope.",
+      "adverseEffects": [
+        "diarrhea",
+        "nausea",
+        "abdominal cramps",
+        "toxicity risk rises with impaired renal function"
+      ],
+      "interactions": [
+        {
+          "medications": "tetracycline and quinolone antibiotics",
+          "note": "NIH ODS: antibiotics at least 2 hours before or 4-6 hours after magnesium; a pharmacist should review the actual medicine schedule."
+        },
+        {
+          "medications": "oral bisphosphonates",
+          "note": "NIH ODS: separate magnesium by at least 2 hours."
+        },
+        {
+          "medications": "diuretics or proton pump inhibitors",
+          "note": "May alter magnesium status; clinician review rather than automatic replacement."
+        }
+      ],
+      "missingInformationCopy": "Not added: dietary need, kidney health and other magnesium sources are unknown.",
+      "priorityConstraints": [
+        "Sleep alone does not establish magnesium need.",
+        "Do not promise better sleep or relaxation to generally healthy adults.",
+        "A below-UL reference dose cannot override kidney disease or medication screening."
+      ],
+      "sources": [
+        "ods-magnesium",
+        "efsa-ul-table",
+        "nccih-magnesium-sleep"
+      ]
+    },
+    {
+      "id": "vitamin-d",
+      "name": "Vitamin D",
+      "plannerStatus": "withhold-auto-add",
+      "referenceDose": null,
+      "doseReason": "Deficiency management and dose belong to clinician assessment. Priority sliders do not diagnose deficiency.",
+      "upperLimits": [
+        {
+          "value": 100,
+          "unit": "mcg/day",
+          "equivalentIU": 4000,
+          "type": "established-ul",
+          "scope": "Adults: total oral intake from foods, fortified foods and supplements. This is a limit, not a target or default deficiency-treatment dose.",
+          "authority": "U.S. FNB via NIH ODS"
+        }
+      ],
+      "doseAccounting": "1 mcg vitamin D = 40 IU. Count multivitamins, vitamin D products, fortified food and combination calcium-vitamin D products.",
+      "adverseEffects": [
+        "excess intake can cause hypercalcemia and hypercalciuria",
+        "severe toxicity can cause kidney failure and arrhythmia"
+      ],
+      "interactions": [
+        "thiazide diuretics plus vitamin D may increase hypercalcemia risk, especially with compromised kidney function",
+        "orlistat, steroids and some statins can alter absorption, metabolism or interaction risk"
+      ],
+      "missingInformationCopy": "Not added: deficiency status, existing intake and medicines are unknown.",
+      "priorityConstraints": [
+        "Do not infer deficiency from low Calm, Focus, Strength, Memory or Energy or Sleep.",
+        "Clinician-directed treatment may differ from population limits; the app should not simulate treatment."
+      ],
+      "sources": [
+        "ods-vitamin-d",
+        "nccih-bodybuilding"
+      ]
+    },
+    {
+      "id": "omega-3",
+      "name": "Omega-3 EPA + DHA",
+      "plannerStatus": "withhold-auto-add",
+      "referenceDose": null,
+      "upperLimits": [
+        {
+          "value": null,
+          "unit": "mg EPA+DHA/day",
+          "type": "no-established-ul",
+          "scope": "The FNB has not established an omega-3 UL. FDA/EFSA findings of safety up to about 5 g/day EPA+DHA supplements are not a target dose or an established UL."
+        }
+      ],
+      "doseAccounting": "Count EPA plus DHA, not the front-label grams of fish oil. Review all products; include food for adequacy assessment.",
+      "adverseEffects": [
+        "gastrointestinal discomfort or unpleasant taste",
+        "4 g/day over years increased atrial fibrillation risk slightly in trials among people with cardiovascular disease or high risk"
+      ],
+      "interactions": [
+        "anticoagulants require review and monitoring; do not state all omega-3 use necessarily causes clinically significant bleeding"
+      ],
+      "missingInformationCopy": "Not added: a healthy-brain benefit and personal indication are not established.",
+      "priorityConstraints": [
+        "Do not auto-add for Focus or healthy-adult brain protection.",
+        "Do not use 5 g/day safety discussion as a planner dose."
+      ],
+      "sources": [
+        "ods-omega-3"
+      ]
+    },
+    {
+      "id": "melatonin",
+      "name": "Melatonin",
+      "plannerStatus": "withhold-auto-add",
+      "referenceDose": null,
+      "doseReason": "No universal nightly dose: timing, indication and duration matter. Consider only a specific short-term circadian indication with clinician/pharmacist guidance.",
+      "upperLimits": [
+        {
+          "value": null,
+          "unit": "mg/day",
+          "type": "no-established-ul-in-cited-guidance",
+          "scope": "Short-term use appears safe for most people; long-term safety remains unclear. No unlimited or blanket daily safety claim."
+        }
+      ],
+      "adverseEffects": [
+        "sleepiness",
+        "headache",
+        "dizziness",
+        "nausea"
+      ],
+      "interactions": [
+        "epilepsy or blood-thinning medicines require medical supervision",
+        "any regular medicines should be reviewed"
+      ],
+      "missingInformationCopy": "Not added: sleep timing, indication, medicines and duration are unknown.",
+      "priorityConstraints": [
+        "Sleep priority is not an indication for chronic daily melatonin.",
+        "No melatonin prescription for chronic insomnia; NCCIH reports insufficient evidence for that use.",
+        "Do not counterbalance stimulant use with a sedating supplement."
+      ],
+      "sources": [
+        "nccih-melatonin"
+      ]
+    },
+    {
+      "id": "protein",
+      "name": "Protein powder",
+      "plannerStatus": "withhold-auto-add",
+      "referenceDose": null,
+      "doseReason": "Use only to fill an established gap between diet and an appropriate total protein target, not an automatic extra serving.",
+      "upperLimits": [
+        {
+          "value": null,
+          "unit": "g/day",
+          "type": "no-established-ul",
+          "scope": "FNB has not set a protein UL; it advises caution with high supplemental intakes because long-term adverse-effect data are limited."
+        }
+      ],
+      "referenceTargets": {
+        "healthyAdultRda": "0.8 g/kg/day total dietary protein",
+        "athleteReference": "1.2-2.0 g/kg/day total protein; not a prescription for every user"
+      },
+      "doseAccounting": "Food protein plus powders, bars, shakes and other supplements all count. Body weight, training and diet are needed to establish a shortfall.",
+      "screening": [
+        "kidney disease requires individualized dietary advice",
+        "milk or soy allergy and formulation-specific allergens",
+        "pregnancy or other conditions outside planner population"
+      ],
+      "missingInformationCopy": "Not added: total dietary intake and an appropriate protein target are unknown.",
+      "priorityConstraints": [
+        "Strength alone does not imply a dietary shortfall.",
+        "Do not claim renal harm in healthy adults at ordinary dietary targets; the exclusion addresses known disease and missing screening."
+      ],
+      "sources": [
+        "ods-performance",
+        "niddk-protein"
+      ]
+    },
+    {
+      "id": "l-theanine",
+      "name": "L-theanine",
+      "plannerStatus": "withhold-auto-add",
+      "referenceDose": {
+        "value": 200,
+        "unit": "mg",
+        "basis": "Evidence-research candidate only; not an established safety UL or a universal recommended intake."
+      },
+      "upperLimits": [
+        {
+          "value": null,
+          "unit": "mg/day",
+          "type": "no-established-ul-in-reviewed-official-guidance",
+          "scope": "Food GRAS notices apply to intended conditions of use; they do not establish an unrestricted daily supplement limit or efficacy."
+        }
+      ],
+      "safetyUncertainty": "FDA's 2024 compounding review found oral use generally well tolerated, but adverse-event reporting was missing in many trials and attribution was confounded in others. The review is about compounded drugs and must not be presented as a dietary-supplement ban.",
+      "shortTermTrialSafety": "FDA reviewed 19 studies in 554 healthy adults exposed to 50-600 mg/day for one day to six weeks. Six studies reported no adverse events; thirteen did not discuss adverse events. This supports a short-term tolerability context, not proven long-term daily safety.",
+      "adverseEffects": [
+        "gastrointestinal or sedating effects have been reported, with uncertain attribution in the reviewed studies"
+      ],
+      "screening": [
+        "pregnancy and breastfeeding excluded by conservative product policy",
+        "medicines, comorbidities and existing supplement doses need review",
+        "do not assume theanine neutralizes caffeine risks"
+      ],
+      "missingInformationCopy": "Not added automatically: long-term daily safety and your medicines have not been assessed.",
+      "priorityConstraints": [
+        "Optional evidence candidate for acute attention, not automatic Calm, Sleep or Memory or Energy coverage.",
+        "Do not use GRAS status as proof that the planner combination or repeated dosing is safe."
+      ],
+      "sources": [
+        "fda-theanine-review",
+        "fda-theanine-gras"
+      ]
+    }
+  ],
+  "interconnectedPriorityRules": [
+    {
+      "id": "safety-before-preferences",
+      "rule": "Eligibility and all-source exposure constraints run before preference scoring. A high benefit score cannot override an exclusion or missing essential information.",
+      "status": "implementation-policy"
+    },
+    {
+      "id": "sleep-veto",
+      "rule": "Dominant Sleep, insomnia, caffeine sensitivity or an unsafe/unknown timing window should remove caffeine from a personally recommended stack. Reference exploration may show a morning option labeled unverified.",
+      "status": "conservative-policy-based-on-fda-efsa-nhlbi"
+    },
+    {
+      "id": "fixed-dose",
+      "rule": "Sliders change ranking and the set of eligible options, not unconstrained ingredient quantities. Daily reference doses and caps remain fixed.",
+      "status": "implementation-policy"
+    },
+    {
+      "id": "no-compensation",
+      "rule": "Do not add sedating or mineral products to cancel a stimulant's unwanted effects.",
+      "status": "conservative-policy; not a claim of a proven pairwise drug interaction"
+    },
+    {
+      "id": "abstention-valid",
+      "rule": "An empty or partial stack is a valid result. Explain why an option was withheld in its existing detail/card, without adding a health-profile panel.",
+      "status": "implementation-policy"
+    },
+    {
+      "id": "no-false-quantification",
+      "rule": "Do not show exact percentages of medical benefit, coverage, or personal safety from an unvalidated weighted score. Label visual scores as preference fit.",
+      "status": "implementation-policy"
+    },
+    {
+      "id": "unknown-not-zero",
+      "rule": "Unknown current intake is null, not zero. Never display a verified safe total or remaining daily allowance when the baseline is unknown.",
+      "status": "implementation-policy"
+    }
+  ],
+  "sources": [
+    {
+      "id": "ods-performance",
+      "title": "NIH ODS: Dietary Supplements for Exercise and Athletic Performance",
+      "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+      "supports": [
+        "creatine monohydrate maintenance 3-5 g/day and no-loading protocols",
+        "water-related weight gain and healthy-adult safety context",
+        "protein RDA, athlete targets, and absent protein UL"
+      ]
+    },
+    {
+      "id": "nccih-bodybuilding",
+      "title": "NCCIH: Bodybuilding and Performance Enhancement Supplements",
+      "url": "https://www.nccih.nih.gov/health/bodybuilding-and-performance-enhancement-supplements",
+      "supports": [
+        "kidney-risk patients should seek review and monitoring for creatine",
+        "nutritional supplements when needed rather than routine universal additions"
+      ]
+    },
+    {
+      "id": "opss-creatine",
+      "title": "U.S. DoD OPSS: Creatine Monohydrate",
+      "url": "https://www.opss.org/article/creatine-monohydrate-dietary-supplement-performance",
+      "supports": [
+        "monohydrate is most studied",
+        "weight gain and gastrointestinal effects",
+        "third-party testing and health-provider guidance",
+        "brain-health evidence remains uncertain"
+      ]
+    },
+    {
+      "id": "fda-caffeine",
+      "title": "FDA: Spilling the Beans: How Much Caffeine is Too Much?",
+      "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much",
+      "supports": [
+        "400 mg/day reference for most adults",
+        "all-source accounting",
+        "individual medication, condition and sensitivity differences",
+        "pregnancy and breastfeeding review",
+        "sleep and cardiovascular side effects"
+      ]
+    },
+    {
+      "id": "efsa-caffeine",
+      "title": "EFSA: Caffeine",
+      "url": "https://www.efsa.europa.eu/en/topics/topic/caffeine",
+      "supports": [
+        "200 mg single-dose and 400 mg/day healthy-adult safety references",
+        "100 mg may affect sleep near bedtime",
+        "200 mg/day pregnancy/lactation reference"
+      ]
+    },
+    {
+      "id": "nhlbi-sleep",
+      "title": "NIH NHLBI: Healthy Sleep Habits",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits",
+      "supports": [
+        "caffeine effects can last up to 8 hours",
+        "first-part-of-shift caffeine advice"
+      ]
+    },
+    {
+      "id": "fda-pure-caffeine",
+      "title": "FDA: Pure and Highly Concentrated Caffeine",
+      "url": "https://www.fda.gov/food/information-select-dietary-supplement-ingredients-and-other-substances/fda-warns-consumers-about-pure-and-highly-concentrated-caffeine",
+      "supports": [
+        "bulk highly concentrated caffeine can cause serious harm and death"
+      ]
+    },
+    {
+      "id": "ods-magnesium",
+      "title": "NIH ODS: Magnesium",
+      "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/",
+      "supports": [
+        "350 mg adult supplemental/medication UL",
+        "elemental label mass",
+        "renal impairment raises toxicity risk",
+        "antibiotic and bisphosphonate spacing",
+        "diuretics and PPI review"
+      ]
+    },
+    {
+      "id": "efsa-ul-table",
+      "title": "EFSA: Summary of Tolerable Upper Intake Levels",
+      "url": "https://www.efsa.europa.eu/sites/default/files/2023-11/ul_summary_tables-version-8.pdf",
+      "supports": [
+        "250 mg adult magnesium UL",
+        "salt and added-source scope; natural food magnesium excluded"
+      ],
+      "verification": "Current PDF table and footnote g were checked on 2026-10-10; URL filename has an older version number but its retrieved content includes later updates."
+    },
+    {
+      "id": "nccih-magnesium-sleep",
+      "title": "NCCIH: Magnesium Supplements for Sleep Disorders",
+      "url": "https://www.nccih.nih.gov/health/in-the-news-magnesium-supplements-for-sleep-disorders",
+      "supports": [
+        "insufficient rigorous evidence of sleep effectiveness",
+        "supplement and medication adverse effects"
+      ]
+    },
+    {
+      "id": "ods-vitamin-d",
+      "title": "NIH ODS: Vitamin D",
+      "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/",
+      "supports": [
+        "adult 100 mcg/4000 IU UL",
+        "hypercalcemia and renal toxicity",
+        "thiazide and other medicine interactions"
+      ]
+    },
+    {
+      "id": "ods-omega-3",
+      "title": "NIH ODS: Omega-3 Fatty Acids",
+      "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/",
+      "supports": [
+        "no FNB UL",
+        "5 g/day safety assessment is not a recommended dose",
+        "4 g/day high-risk-population atrial fibrillation finding",
+        "anticoagulant review",
+        "no consistent healthy-older-adult cognitive benefit"
+      ]
+    },
+    {
+      "id": "nccih-melatonin",
+      "title": "NCCIH: Melatonin: What You Need To Know",
+      "url": "https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know",
+      "supports": [
+        "short-term safety and incomplete long-term safety",
+        "epilepsy/blood-thinner supervision",
+        "sleepiness and other adverse effects",
+        "insufficient chronic-insomnia evidence"
+      ]
+    },
+    {
+      "id": "niddk-protein",
+      "title": "NIH NIDDK: Protein Tips for People with Chronic Kidney Disease",
+      "url": "https://www.niddk.nih.gov/-/media/Files/Health-Information/Communication-Programs/NKDEP/nutrition-protein-508.pdf",
+      "supports": [
+        "kidney-disease protein needs require individualized management"
+      ]
+    },
+    {
+      "id": "nccih-wise",
+      "title": "NCCIH: Using Dietary Supplements Wisely",
+      "url": "https://www.nccih.nih.gov/health/using-dietary-supplements-wisely",
+      "supports": [
+        "medication, medical-condition, surgery and pregnancy screening",
+        "natural is not a guarantee of safety"
+      ]
+    },
+    {
+      "id": "fda-supplements",
+      "title": "FDA: Questions and Answers on Dietary Supplements",
+      "url": "https://www.fda.gov/food/information-consumers-using-dietary-supplements/questions-and-answers-dietary-supplements",
+      "supports": [
+        "FDA does not approve supplements before marketing"
+      ]
+    },
+    {
+      "id": "fda-theanine-review",
+      "title": "FDA 2024 Pharmacy Compounding Advisory Committee Briefing: L-theanine",
+      "url": "https://www.fda.gov/media/182086/download",
+      "supports": [
+        "oral generally well tolerated with limited adverse-event reporting",
+        "food GRAS context differs from compounded drug assessment"
+      ],
+      "scopeWarning": "Do not treat the compounding recommendation as a general ban on food or supplement L-theanine."
+    },
+    {
+      "id": "fda-theanine-gras",
+      "title": "FDA GRAS Notice 501: L-theanine",
+      "url": "https://hfpappexternal.fda.gov/scripts/fdcc/index.cfm?id=501&set=GRASNotices",
+      "supports": [
+        "ingredient-in-foods intended-use context; not a personal efficacy or unrestricted-dose assessment"
+      ]
+    }
+  ],
+  "interfaceGoals": [
+    "Sleep",
+    "Memory",
+    "Focus",
+    "Strength",
+    "Calm",
+    "Energy"
+  ]
+}

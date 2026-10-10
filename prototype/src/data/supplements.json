@@ -1,0 +1,29 @@
+{
+ "version":2,
+ "reviewed":"2026-10-10",
+ "mode":"Exploratory playable blend, real quantities",
+ "method":"Benefit links are evidence-informed, but gameWeight values and priority thresholds are invented balancing rules, not clinical effect sizes. Portions below studied amounts do not imply proven efficacy. No individual suitability assessment.",
+ "supplements":[
+  {"id":"creatine","name":"Creatine","form":"Creatine monohydrate","color":"#8d4fea","ballQuantity":250,"unit":"mg","cap":3000,"tiers":[0,3000],"cost":0.35,
+   "portionNote":"One fixed 3 g portion. A higher goal never multiplies this dose. Trials commonly use 3–5 g/day over weeks; memory evidence varies by population and dose.",
+   "benefits":[
+    {"goal":"strength","gameWeight":4,"evidence":"established","claim":"Supports repeated high-intensity efforts and strength-training adaptation over weeks."},
+    {"goal":"memory","gameWeight":3,"evidence":"exploratory","claim":"Some trials/reviews suggest memory benefits; general cognitive enhancement is not established."},
+    {"goal":"focus","gameWeight":1.4,"evidence":"exploratory","claim":"Cognitive task findings are mixed; this is an exploratory game link, not a proven focus treatment."},
+    {"goal":"energy","gameWeight":0.7,"evidence":"physiological role","claim":"Supports rapid energy availability in muscle, not a treatment for tiredness."}
+   ],
+   "sources":[{"title":"NIH ODS: Exercise performance","url":"https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/"},{"title":"EFSA: Creatine and cognition","url":"https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2024.9100"},{"title":"Memory review","url":"https://pubmed.ncbi.nlm.nih.gov/35984306/"}]},
+  {"id":"caffeine","name":"Caffeine","form":"Measured caffeine portion","color":"#ffb51b","ballQuantity":25,"unit":"mg","cap":75,"tiers":[0,25,50,75],"cost":0.35,
+   "portionNote":"At most one 75 mg early-day portion. 25/50 mg are playable sub-portions, not established effective attention doses. EFSA attention/alertness claims concern 75 mg. Avoid bulk pure caffeine powder.",
+   "benefits":[{"goal":"focus","gameWeight":3.6,"evidence":"established at 75 mg","claim":"Acute attention benefit; lower game portions are not a clinical efficacy claim."},{"goal":"energy","gameWeight":4.2,"evidence":"established at 75 mg","claim":"Acute alertness; does not replace sleep or treat persistent fatigue."}],
+   "sources":[{"title":"EFSA: Attention and alertness","url":"https://www.efsa.europa.eu/en/efsajournal/pub/3574"},{"title":"EFSA: Caffeine safety","url":"https://www.efsa.europa.eu/en/topics/topic/caffeine"},{"title":"NHLBI: Sleep habits","url":"https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits"}]},
+  {"id":"theanine","name":"L-theanine","form":"L-theanine","color":"#19b997","ballQuantity":50,"unit":"mg","cap":200,"tiers":[0,100,200],"cost":0.5,
+   "portionNote":"100/200 mg game portions stay within amounts used in small short-term studies. No established universal safe daily upper limit, or established long-term daily benefit.",
+   "benefits":[{"goal":"sleep","gameWeight":2,"evidence":"exploratory","claim":"Small 200 mg/day studies report some subjective sleep signals; evidence is preliminary."},{"goal":"memory","gameWeight":2,"evidence":"exploratory","claim":"A small acute trial reported working-memory/attention task signals in adults with subjective cognitive decline; not proof of general memory enhancement."},{"goal":"focus","gameWeight":3.6,"evidence":"promising short-term","claim":"Some acute attention task signals; sustained daily effects are uncertain."},{"goal":"calm","gameWeight":3.5,"evidence":"exploratory","claim":"Small trials suggest stress-related signals; not an established anxiety treatment."}],
+   "sources":[{"title":"Short-term stress/sleep trial","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC6836118/"},{"title":"Working-memory task trial","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC8080935/"},{"title":"Healthy-adult cognitive review","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12609247/"}]},
+  {"id":"magnesium","name":"Magnesium","form":"Elemental magnesium","color":"#f16a86","ballQuantity":50,"unit":"mg elemental","cap":200,"tiers":[0,100,200],"cost":0.6,
+   "portionNote":"100/200 mg elemental portions are application choices, not established sleep doses. Normal nutrient function does not imply a boost in adults with adequate intake. Below both the US 350 mg and EU 250 mg supplemental limits.",
+   "benefits":[{"goal":"sleep","gameWeight":3.5,"evidence":"exploratory","claim":"Small or conflicting sleep studies; general sleep benefit is not established."},{"goal":"strength","gameWeight":1.3,"evidence":"nutrient role","claim":"Supports normal muscle function; correcting inadequate intake differs from enhancing an adequately nourished adult."},{"goal":"calm","gameWeight":2,"evidence":"exploratory","claim":"Preliminary stress-related evidence; normal nerve function is not proof of a calming effect."},{"goal":"energy","gameWeight":0.5,"evidence":"nutrient role","claim":"Required for normal energy metabolism, not a proven fatigue treatment when intake is adequate."}],
+   "sources":[{"title":"NIH ODS: Magnesium","url":"https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"},{"title":"NCCIH: Sleep approaches","url":"https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches"},{"title":"Stress review","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC5452159/"}]}
+ ]
+}

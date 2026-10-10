@@ -1,0 +1,42 @@
+# Dependencies and package-manager caches
+node_modules/
+.npm/
+.pnpm-store/
+
+# Generated bundles. The other dist/ files are hand-written application source.
+/dist/prototype/
+build/
+.next/
+.output/
+.vite/
+coverage/
+*.tsbuildinfo
+*.log
+
+# Local environment, credentials, and service metadata
+.env
+.env.*
+*.env
+.sites-runtime/
+.openai/
+.aws/
+.ssh/
+.npmrc
+.netrc
+credentials.json
+credentials.*
+secrets.json
+secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+*.swp
