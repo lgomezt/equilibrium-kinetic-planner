@@ -19,7 +19,7 @@ function App(){
  const [app,dispatch]=useReducer(updateApp,null,()=>({blend:createGameState(),notice:'Higher priorities don’t always need more. Shared benefits count once.'})),installation=useRef();
  const state=app.blend,notice=app.notice;
  const setNotice=text=>dispatch({type:'notice',text});
- const [detail,setDetail]=useState(null),popover=useRef();
+ const [detail,setDetail]=useState(null),popover=useRef(),opener=useRef();
  const [reducedMotion,setReducedMotion]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
  const controls=useMemo(()=>getControls(state),[state]),plan=useMemo(()=>toPlan(state),[state]);
  useEffect(()=>{
@@ -27,7 +27,7 @@ function App(){
   mq.addEventListener('change',update);return()=>mq.removeEventListener('change',update);
  },[]);
  useEffect(()=>{
-  if(detail!==null)popover.current?.showPopover();
+  if(detail!==null){popover.current?.showPopover();popover.current?.querySelector('.close')?.focus();}
  },[detail]);
  useEffect(()=>{
   window.supplementPlanner={snapshot:()=>({priorities:{...state.priorities},counts:[...state.counts],plan:toPlan(state).map(p=>({id:p.id,balls:p.balls,dose:p.dose,cap:p.cap})),controls:getControls(state)})};
@@ -47,7 +47,8 @@ function App(){
   // One atomic reducer preserves consecutive rapid clicks under React batching.
   dispatch({type:'change',goal,delta});
  }
- function showDetail(value){setDetail(value);}
+ function showDetail(value){opener.current=document.activeElement;setDetail(value);}
+ function closeDetails(){setDetail(null);opener.current?.focus();}
  const info=typeof detail==='number'?plan[detail]:null;
  return <>
   <header className="topbar"><div className="wordmark"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5"/><path d="M3.5 16h25M16 3.5v25"/><circle cx="16" cy="16" r="5"/></svg>equilibrium</div><span className="mode"><span className="mode-dot"/>a playful balance</span></header>
@@ -61,12 +62,12 @@ function App(){
      {blocked&&<span className="sr-only" id={`${goal}-lock`}>{control.reason}</span>}
     </div>;})}</section>
     <div className="machine"><Scene plan={plan} reducedMotion={reducedMotion}/></div>
-    <section className="dosages" aria-label="Daily blend quantities">{plan.map((p,i)=><div className="dosage" key={p.id} style={{'--color':p.color}}><button className="dose-name" onClick={()=>showDetail(i)} aria-haspopup="dialog"><span className="color-key"/>{p.name}</button><div className={`dose-amount ${p.dose?'':'empty'}`}>{p.dose?amount(p.dose):'Not included'}{p.dose>0&&<small>/ day</small>}</div><p className="ball-unit">1 ball = {amount(p.ballQuantity)}{p.id==='magnesium'?' elemental':''}</p></div>)}</section>
+    <section className="dosages" aria-label="Daily blend quantities">{plan.map((p,i)=><div className="dosage" key={p.id} style={{'--color':p.color}}><button className="dose-name" onClick={()=>showDetail(i)} aria-haspopup="dialog" aria-controls="blend-details" aria-expanded={detail===i}><span className="color-key"/>{p.name}</button><div className={`dose-amount ${p.dose?'':'empty'}`}>{p.dose?amount(p.dose):'Not included'}{p.dose>0&&<small>/ day</small>}</div><p className="ball-unit">1 ball = {amount(p.ballQuantity)}{p.id==='magnesium'?' elemental':''}</p></div>)}</section>
     <div className="plan-note" aria-live="polite" aria-atomic="true"><span className="note-dot"/><p>{notice}</p></div>
    </div>
   </main>
-  <footer><span>Exploratory blend · Real quantities · Conservative caps</span><button className="text-button" onClick={()=>showDetail('rules')} aria-haspopup="dialog">Evidence & boundaries <span aria-hidden="true">↗</span></button></footer>
-  <div className="detail" ref={popover} popover="auto" role="dialog" aria-label={info?`${info.name} evidence`:'Blend boundaries'} onToggle={event=>{if(event.newState==='closed')setDetail(null);}}>
+  <footer><span>Exploratory blend · Healthy adult assumptions · Intake & medicines unchecked</span><button className="text-button" onClick={()=>showDetail('rules')} aria-haspopup="dialog" aria-controls="blend-details" aria-expanded={detail==='rules'}>Evidence & boundaries <span aria-hidden="true">↗</span></button></footer>
+  <div className="detail" id="blend-details" ref={popover} popover="auto" role="dialog" aria-label={info?`${info.name} evidence`:'Blend boundaries'} onToggle={event=>{if(event.newState==='closed')closeDetails();}}>
    <button className="close" aria-label="Close details" onClick={()=>popover.current.hidePopover()}>×</button>
    {info?<>
     <h2>{info.name}</h2><p>{info.portionNote}</p>
