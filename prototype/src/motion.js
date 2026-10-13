@@ -1,7 +1,7 @@
 import { CubicBezierCurve3, CurvePath, Vector3 } from 'three';
 
-// These shared curves drive both the visible rail geometry and the sample marble.
-// They are an isolated motion study; the production planner has no dependency here.
+// Shared geometry drives the rails and persistent inventory. The original sample
+// trajectory remains a testable reference for the approved one-marble study.
 const point = (x, y, z = 0) => new Vector3(x, y, z);
 const cubic = (a, b, c, d) => {
   const curve = new CubicBezierCurve3(...[a, b, c, d].map(v => point(...v)));
@@ -36,7 +36,7 @@ mainCurve.arcLengthDivisions = 1400;
 
 // The chutes end at the tray opening. The final short fall is free of the rail.
 export const exitCurves = binCenters.map(x => cubic(
-  [4.6, -1.05], [6.35, -1.05], [x, -1.72], [x, -2.10],
+  [4.6, -1.05, 0], [6.35, -1.05, .65], [x, -1.72, .45], [x, -2.10, .38],
 ));
 
 export const durations = Object.freeze({
@@ -121,7 +121,7 @@ export function sampleMotion(elapsed, feedIndex = 3, binIndex = 0) {
     } else {
       const fallingTime = localTime - exitRailTime;
       sample = {
-        position: point(binCenters[bin], -2.10 - dropStartSpeed * fallingTime - 0.5 * dropAcceleration * fallingTime ** 2),
+        position: point(binCenters[bin], -2.10 - dropStartSpeed * fallingTime - 0.5 * dropAcceleration * fallingTime ** 2, curve.getPointAt(1).z*(1-fallingTime/dropTime)),
         tangent: point(0, -1),
       };
     }

@@ -1,6 +1,6 @@
 # Equilibrium pinball cabinet
 
-The React planner at `/prototype/` is presented as an inclined space-themed arcade cabinet. React Three Fiber, Three.js and Drei render the walnut frame, printed navy playfield, chrome serpentine, six launch chutes, star-centered Ferris wheel, collection compartments and transparent return channel. Accessible HTML controls and dosage labels are attached to physical panels.
+The React planner is presented as an inclined space-themed arcade cabinet at `/prototype/` in development and at both `/` and `/prototype/` after the production preparation step. React Three Fiber, Three.js and Drei render the walnut frame, printed navy playfield, chrome serpentine, six launch chutes, star-centered Ferris wheel, collection compartments and transparent return channel. Accessible HTML controls and dosage labels are attached to physical panels.
 
 The supplied cabinet reference guides the arched illuminated backglass, scalloped cream control panel, raised Saturn and rocket, angled collector and opposing chrome serpentine, tilted champagne wheel, jewel-marked compartments, curved glass return loop and compact engraved fuel/evidence pocket. The portrait cabinet stays centered at up to 1280px wide; shorter desktop windows scroll vertically so controls retain their size. `ReferenceHeader.jsx`, `ReferenceDecor.jsx` and `ReferenceMechanisms.jsx` contain the corresponding visual assemblies.
 
@@ -8,11 +8,28 @@ On phones, **Zoom cabinet** enlarges the same mounted cabinet for readable contr
 
 The narrow fuel bar's round info button opens the complete status and evidence boundaries. Live status announcements remain available to assistive technology. Pressing a blocked increase also opens its explanation without changing the selected quantities.
 
-The existing `planner.js`, supplement data and atomic React reducer remain authoritative and unchanged. The final cabinet uses the existing four supplements and leaves two compartments unassigned. A marble represents the same fixed portion as before; no illustrative recommendation enters the application state. The hand-written original application at `/` is retained.
+`planner.js`, the supplement data and the atomic React reducer remain authoritative. The cabinet uses the existing four supplements and leaves two compartments unassigned. A marble represents the same fixed portion as before; no illustrative recommendation enters the application state. The original SVG application is retained at `/legacy/`.
+
+The repository synchronization includes the upstream planner safety-limit enforcement and immutable catalog, fixes to the earlier inventory and motion modules, and evidence-dialog accessibility improvements. The cabinet uses its own `src/arcade/mechanical-inventory.js` and `src/arcade/paths.js`; the earlier `src/inventory.js`, `src/motion.js` and `src/Scene.jsx` remain as tested prior implementation modules. The visual redesign checkpoint documented below predates this synchronization, so its source-equality guards are historical evidence rather than a claim that the current planner is unchanged.
 
 ## Run and build
 
-From `prototype/`, run `npm ci` and `npm run dev`. Open the printed `/prototype/` URL. `npm run build` writes only `../dist/prototype/` and retains the original production assets. Serve `dist/` from the repository root to inspect the built application.
+Use **Node.js 22.12 or newer**. From the repository root:
+
+```sh
+npm ci --prefix prototype
+npm run dev --prefix prototype
+```
+
+Open **http://127.0.0.1:4175/prototype/**, or the `/prototype/` URL printed by Vite if that port is occupied. To preview the production build, stop the development server and run:
+
+```sh
+npm run build --prefix prototype
+node prototype/publish-prep.mjs
+python3 -m http.server 4173 --directory dist
+```
+
+Open **http://localhost:4173/** or **http://localhost:4173/prototype/**. Vite writes only `dist/prototype/`; `publish-prep.mjs` copies its built entry point to `dist/index.html` and retains the original SVG application at `/legacy/`. The generated `dist/prototype/` directory is ignored by Git and must be rebuilt after a fresh checkout. Serving `dist/` without rebuilding and preparing it can show an older entry point or missing generated assets. Deploy the complete prepared `dist/` directory using the existing Sites hosting manifest.
 
 Two independent review pages are included:
 
@@ -20,6 +37,35 @@ Two independent review pages are included:
 - `/prototype/cabinet-study.html`: the complete static composition, with the six explicitly illustrative sample labels from the design specification. These samples are isolated from the live planner. Existing sample tokens are distributed across their launch cups, wheel holders, tracks, return lane and remaining bin heaps; the live interface always displays its authoritative inventory.
 
 Cabinet artwork combines local mesh geometry, procedural/SVG textures and **11 selected photographic surface assets**: the large foreground moon, Saturn globe, rocket's silver body, seven small playfield asteroids and the small foreground companion. Object-only crops from the supplied cabinet reference are mapped onto real opaque 3D sculptures. Their masks blend surface color while retaining physical geometry, depth and shadows; excluded regions keep the native material. The small rocks' native edge color was also corrected to reduce pale rims and lifted shadows around the photographic surface. The original-RGB artwork carries lighting from the fixed reference view, so it is not fully procedural or a view-independent lighting reconstruction. Source bounds, masks and provenance accompany the assets. Separate title-only reference glyph artwork preserves the semantic native heading and has a native visual fallback if its image fails to load. The procedural studio environment is supplemented by `public/reflections/cabinet-interior.hdr`, a bundled, prefiltered CubeUV capture prepared offline from the fixed cabinet. `CabinetReflections.jsx` projects that map within the cabinet bounds onto selected metals, preserving their existing shader finishes. The app loads this already-filtered local asset without recapturing or filtering it at runtime; if it cannot load, the cabinet retains the procedural studio reflections. Rendering requires no third-party asset host. Open Sans ExtraBold is bundled under Apache 2.0, and Nimbus Sans Narrow under AGPL-3 with the font exception. Their license notices are included in `src/arcade/fonts/`.
+
+## Planner contract
+
+`createGameState()` constructs a feasible initial blend. `attemptChange(state, goal, delta)` accepts one `+1` or `−1` step; `getControls(state)` exposes locks and their reasons; `toPlan(state)` produces quantities and input-chute origins for the scene.
+
+- An accepted increase keeps every ingredient count at or above its previous value.
+- An accepted decrease keeps every ingredient count at or below its previous value and retains support required by other goals.
+- An infeasible increase returns the same state. A blocked `+` communicates its reason without changing the blend.
+- The planner searches 72 discrete combinations. Priorities cannot create a dose outside the permitted tiers or caps.
+
+| Ingredient | One ball | Allowed nonzero daily quantities | Application cap |
+|---|---:|---|---:|
+| Creatine monohydrate | 250 mg | 3 g | 3 g |
+| Caffeine | 25 mg | 25, 50, 75 mg | 75 mg |
+| L-theanine | 50 mg | 100, 200 mg | 200 mg |
+| Magnesium | 50 mg elemental | 100, 200 mg elemental | 200 mg elemental |
+
+Zero is also permitted for each ingredient. These are application caps, not universal safety clearances. Creatine and L-theanine have no established population UL in the cited material. The magnesium cap is below the cited US 350 mg supplemental UL and narrower European 250 mg limit; unknown other products still matter.
+
+| Higher of Sleep / Calm priorities | Caffeine allowed |
+|---|---:|
+| 0–1 | Up to 75 mg |
+| 2 | Up to 50 mg |
+| 3 | Up to 25 mg |
+| 4–5 | None |
+
+These priority cutoffs are explicit gameplay rules. High Sleep and Focus can coexist through nonstimulant associations. Exploratory links do not establish additive efficacy, and theanine or magnesium is not treated as neutralizing caffeine.
+
+`isDoseAllowed` filters tiers against the smallest applicable catalog cap, planner cap and established limit before candidate enumeration. `toPlan` reports that effective cap. Catalog and safety data are immutable.
 
 ## Presentation mechanics
 
@@ -33,7 +79,9 @@ The selected main rail is 0.60 world units wide, reducing the oversized dark tro
 
 The existing browser inspection hooks remain available: `window.supplementPlanner.snapshot()` reports the authoritative state; `window.supplementMachine.snapshot()` reports the presentation inventory, and `.advanceForTest(seconds)` advances its deterministic timeline. They are verification hooks, not product controls.
 
-## Reference review
+## Reference review checkpoint
+
+This section records the selected visual redesign before synchronization with upstream `main`. Its paired-crop artifacts and later validation paths refer to the cloud review archive; they are not application dependencies and are not included in the repository.
 
 The reference inventory contains **361 features**, and **all 361 now have individual paired-crop reviews**. Each per-ID record identifies the image checkpoint, visible shape, material, placement, pose, residual differences and any uncertainty. The review artifacts include named bounds, native pairs and contact sheets outside the application bundle. Later observations supersede earlier checkpoints rather than adding duplicate features to the count.
 
@@ -45,7 +93,21 @@ Floor-only contact shading is selected at **0.4 strength**. Its **384 × 320 tex
 
 ## Validation
 
-Run `npm test` from `prototype/` and `node --test tests/*.test.mjs` from the repository root. The final focused checks pass **34/34**: **29 arcade**, **4 readiness** and **1 cover-geometry** checks. The original application recheck passes **20/20**. The complete prototype recheck passes **57/59**, with the same two baseline failures: the legacy inventory's bottom-wheel overlap and the planner's independent safety-limit test. These remain failures, not environment errors. All **8 business-source guards pass**, confirming the checked planner, data, reducer entry point, legacy motion/inventory and legacy test files remain unchanged against the saved baseline.
+The merged repository passes **63/63 prototype tests**, **20/20 original application tests**, and the production build. This includes the upstream regression coverage and the cabinet tests. These results supersede the two prototype baseline failures recorded in the historical checkpoint below. The build retains Vite's large-chunk advisory.
+
+Run the current code's checks from the repository root:
+
+```sh
+npm test --prefix prototype
+node --test tests/*.test.mjs
+npm run build --prefix prototype
+```
+
+The focused cabinet checks can also be run from `prototype/` with `node --test tests/arcade-*.test.mjs tests/projection-readiness.test.mjs tests/return-cover.test.mjs`.
+
+### Historical visual-redesign validation
+
+All results below were recorded **before the upstream synchronization**. At that checkpoint, focused checks passed **34/34**: **29 arcade**, **4 readiness** and **1 cover-geometry** checks. The original application recheck passed **20/20**. The complete prototype recheck passed **57/59**, with two baseline failures: the legacy inventory's bottom-wheel overlap and the planner's independent safety-limit test. The upstream synchronization brings in fixes covering those areas; the historical 57/59 result does not describe the merged code's current test status. All **8 business-source guards passed at that earlier checkpoint**, confirming equality of the then-checked planner, data, reducer entry point, legacy motion/inventory and legacy test files against the saved pre-redesign baseline. Those source-equality results do not apply to upstream changes now included in the repository.
 
 The selected 0.60-width geometry reports **0 contacts** across **191,299 route/slot samples** and **2,351 fixed source meshes**, including physical glass and return beds, at the actual colored-marble radius of **0.25** and zero contact tolerance. Front-mechanism sweeps report **0 contacts** across **168 moving meshes** and **393,120 sampled poses** at 1,200 Hz, using a conservative 0.265 clearance threshold. Cup sweeps report **0 contacts** across **54 meshes** and **11,160 relevant loading/wheel/exit frames**, drawn from a 15-second simulation at 2,400 Hz (36,000 total simulated frames). All four staged upper/falling spheres pass their full projected-disc visibility checks: **3,209 of 3,209 rays visible for each sphere**.
 

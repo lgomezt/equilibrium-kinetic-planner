@@ -1,0 +1,246 @@
+{
+  "version": 1,
+  "reviewed": "2026-10-10",
+  "population": "Generally healthy, nonpregnant adults, with no medication use, kidney disease, or other supplement/caffeine intake assumed. Reference options; individual suitability is not screened.",
+  "method": "Official evidence assessments and systematic reviews of randomized trials. A physiological role is not proof of a benefit from extra supplementation. Conditional and insufficient-evidence compounds are excluded from automatic daily selection.",
+  "supplements": [
+    {
+      "id": "creatine",
+      "name": "Creatine",
+      "form": "Creatine monohydrate",
+      "color": "#8960D2",
+      "ballQuantity": 250,
+      "unit": "mg",
+      "dailyReference": 3000,
+      "automatic": true,
+      "benefits": [
+        {
+          "goal": "strength",
+          "evidence": "strong",
+          "claim": "Supports repeated high-intensity efforts and strength-training adaptation over weeks."
+        },
+        {
+          "goal": "memory",
+          "evidence": "emerging",
+          "claim": "Some reviews show a memory signal, but population, dose and response vary. Does not independently trigger a recommendation."
+        }
+      ],
+      "effectiveDose": {
+        "range": "3\u20135 g/day without requiring a loading phase",
+        "selected": 3000,
+        "unit": "mg",
+        "duration": "Several weeks; not an acute effect."
+      },
+      "selection": "Strength priority at least 2 selects one fixed 3 g daily reference. This priority threshold is a product preference rule, not a clinical cutoff.",
+      "sources": [
+        {
+          "title": "NIH ODS: Exercise and athletic performance",
+          "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/"
+        },
+        {
+          "title": "Creatine memory systematic review",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35984306/"
+        },
+        {
+          "title": "EFSA 2024: Creatine and cognition",
+          "url": "https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2024.9100"
+        }
+      ]
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "form": "Measured caffeine amount; never bulk pure powder",
+      "color": "#EAAF39",
+      "ballQuantity": 25,
+      "unit": "mg",
+      "dailyReference": 75,
+      "automatic": true,
+      "conditionalOnAssumptions": true,
+      "benefits": [
+        {
+          "goal": "focus",
+          "evidence": "established",
+          "claim": "Improves attention acutely."
+        },
+        {
+          "goal": "energy",
+          "evidence": "established",
+          "claim": "Improves alertness acutely; does not treat chronic fatigue or replace sleep."
+        }
+      ],
+      "effectiveDose": {
+        "range": "75 mg per quantified portion supports attention/alertness claims",
+        "selected": 75,
+        "unit": "mg",
+        "duration": "One early-day portion, at least 8 hours before bedtime; not a requirement for daily use."
+      },
+      "selection": "One 75 mg portion when Focus or Energy is at least 2 and outweighs Sleep and Calm. Sleep or Calm at 4\u20135 always vetoes caffeine. Product conflict rules are conservative preferences, not a validated clinical score.",
+      "sources": [
+        {
+          "title": "EFSA 2014: 75 mg caffeine and attention/alertness",
+          "url": "https://www.efsa.europa.eu/en/efsajournal/pub/3574"
+        },
+        {
+          "title": "EFSA: Caffeine safety",
+          "url": "https://www.efsa.europa.eu/en/topics/topic/caffeine"
+        },
+        {
+          "title": "NHLBI: Healthy sleep habits",
+          "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits"
+        }
+      ]
+    },
+    {
+      "id": "theanine",
+      "name": "L-theanine",
+      "form": "L-theanine",
+      "color": "#53A591",
+      "ballQuantity": 50,
+      "unit": "mg",
+      "dailyReference": 0,
+      "automatic": false,
+      "benefits": [
+        {
+          "goal": "focus",
+          "evidence": "short-term promising",
+          "claim": "A single 200 mg dose improved choice reaction time in a 2026 meta-analysis; a laboratory attention effect does not establish sustained daily benefit."
+        }
+      ],
+      "effectiveDose": {
+        "range": "200 mg once, 30\u201360 minutes before cognitive testing",
+        "selected": null,
+        "unit": "mg",
+        "duration": "Short-term testing; no automatic daily dose."
+      },
+      "selection": "Excluded from the daily reference plan: long-term daily benefit and individualized suitability remain unverified. Not scored for Calm or Sleep.",
+      "limitations": [
+        "One coauthor of the 2026 review founded a supplement company.",
+        "Stress estimates were influenced by high-bias studies; anxiety effects were inconsistent."
+      ],
+      "sources": [
+        {
+          "title": "Gerolymos et al. 2026, 31 randomized trials",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42410082/"
+        },
+        {
+          "title": "M\u00e1tyus et al. 2025, healthy-adult cognitive trials",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12609247/"
+        }
+      ]
+    },
+    {
+      "id": "magnesium",
+      "name": "Magnesium",
+      "form": "Elemental magnesium",
+      "color": "#DC8C84",
+      "ballQuantity": 50,
+      "unit": "mg",
+      "dailyReference": 0,
+      "automatic": false,
+      "benefits": [
+        {
+          "goal": "sleep",
+          "evidence": "insufficient for general use",
+          "claim": "Sleep studies are small or conflicting; a physiological role in nerves and muscles is not evidence that extra magnesium benefits adequately nourished adults."
+        }
+      ],
+      "effectiveDose": {
+        "range": null,
+        "selected": null,
+        "unit": "mg",
+        "duration": "No established general sleep dose."
+      },
+      "selection": "No automatic recommendation without an assessed dietary shortfall or clinical indication.",
+      "sources": [
+        {
+          "title": "NCCIH: Sleep disorders and complementary approaches",
+          "url": "https://www.nccih.nih.gov/health/sleep-disorders-and-complementary-health-approaches"
+        },
+        {
+          "title": "NIH ODS: Magnesium",
+          "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"
+        },
+        {
+          "title": "2026 review: Magnesium for sleep",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42661485/"
+        }
+      ]
+    },
+    {
+      "id": "vitamin-d",
+      "name": "Vitamin D",
+      "automatic": false,
+      "dailyReference": 0,
+      "benefits": [
+        {
+          "goal": "strength",
+          "evidence": "nutritional adequacy",
+          "claim": "Supports normal bone and muscle function; correcting a deficiency differs from boosting a sufficient healthy adult."
+        }
+      ],
+      "effectiveDose": {
+        "range": "Adult RDA 600 IU ages 19\u201370, 800 IU over 70; total intake, not an automatic supplement prescription.",
+        "selected": null,
+        "unit": "IU"
+      },
+      "selection": "Excluded pending intake or deficiency assessment.",
+      "sources": [
+        {
+          "title": "NIH ODS: Vitamin D",
+          "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "omega-3",
+      "name": "Omega-3",
+      "automatic": false,
+      "dailyReference": 0,
+      "benefits": [
+        {
+          "goal": "memory",
+          "evidence": "not established in healthy adults",
+          "claim": "Routine fish-oil supplementation has not established general cognitive enhancement."
+        }
+      ],
+      "effectiveDose": {
+        "range": null,
+        "selected": null,
+        "unit": "mg EPA+DHA"
+      },
+      "selection": "Excluded without a specific indication. High-dose triglyceride treatment is clinician directed.",
+      "sources": [
+        {
+          "title": "NIH ODS: Omega-3 fatty acids",
+          "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/"
+        }
+      ]
+    },
+    {
+      "id": "melatonin",
+      "name": "Melatonin",
+      "automatic": false,
+      "dailyReference": 0,
+      "benefits": [
+        {
+          "goal": "sleep",
+          "evidence": "indication-dependent",
+          "claim": "May help circadian timing problems such as jet lag. Evidence does not support a blanket chronic-insomnia recommendation."
+        }
+      ],
+      "effectiveDose": {
+        "range": null,
+        "selected": null,
+        "unit": "mg"
+      },
+      "selection": "Excluded without a timing indication. Long-term safety is not established.",
+      "sources": [
+        {
+          "title": "NCCIH: Melatonin",
+          "url": "https://www.nccih.nih.gov/health/melatonin-what-you-need-to-know"
+        }
+      ]
+    }
+  ]
+}

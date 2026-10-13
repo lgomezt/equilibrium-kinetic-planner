@@ -19,7 +19,7 @@ function App(){
  const [app,dispatch]=useReducer(updateApp,null,()=>({blend:createGameState(),notice:'Higher priorities don’t always need more. Shared benefits count once.'}));
  const state=app.blend,notice=app.notice;
  const setNotice=text=>dispatch({type:'notice',text});
- const [detail,setDetail]=useState(null),popover=useRef();
+ const [detail,setDetail]=useState(null),popover=useRef(),opener=useRef();
  const [zoomed,setZoomed]=useState(false),scrollPort=useRef();
  const [reducedMotion,setReducedMotion]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches);
  const controls=useMemo(()=>getControls(state),[state]),plan=useMemo(()=>toPlan(state),[state]);
@@ -42,7 +42,7 @@ function App(){
   return()=>{cancelAnimationFrame(layoutFrame);cancelAnimationFrame(centerFrame);};
  },[zoomed]);
  useEffect(()=>{
-  if(detail!==null)popover.current?.showPopover();
+  if(detail!==null){popover.current?.showPopover();popover.current?.querySelector('.close')?.focus();}
  },[detail]);
  useEffect(()=>{
   window.supplementPlanner={snapshot:()=>({priorities:{...state.priorities},counts:[...state.counts],plan:toPlan(state).map(p=>({id:p.id,balls:p.balls,dose:p.dose,cap:p.cap})),controls:getControls(state)})};
@@ -51,9 +51,10 @@ function App(){
  function change(goal,delta){
   // One atomic reducer preserves consecutive rapid clicks under React batching.
   dispatch({type:'change',goal,delta});
-  if(delta>0&&!controls[goal].canIncrease&&state.priorities[goal]<5)setDetail('rules');
+  if(delta>0&&!controls[goal].canIncrease&&state.priorities[goal]<5)showDetail('rules');
  }
- function showDetail(value){setDetail(value);}
+ function showDetail(value){opener.current=document.activeElement;setDetail(value);}
+ function closeDetails(){setDetail(null);opener.current?.focus();}
  function keepControlVisible(event){
   if(!zoomed||!matchMedia('(max-width:640px)').matches||scrollPort.current?.querySelector('.arcade-fallback'))return;
   const target=event.target;
@@ -70,15 +71,15 @@ function App(){
      <div className="priority-controls"><button className="stepper" aria-label={`Decrease ${name} priority`} disabled={!control.canDecrease} onClick={()=>change(goal,-1)}>−</button><span className="level"><strong>{level}</strong><span aria-hidden="true">/5</span></span><button className={`stepper ${blocked?'blocked':''}`} aria-label={`Increase ${name} priority`} aria-disabled={!control.canIncrease} aria-describedby={blocked?`${goal}-lock`:undefined} title={!control.canIncrease?control.reason:`Increase ${name}`} disabled={level===5} onFocus={()=>{if(blocked)setNotice(control.reason);}} onMouseEnter={()=>{if(blocked)setNotice(control.reason);}} onClick={()=>change(goal,1)}>+</button></div>
      {blocked&&<span className="sr-only" id={`${goal}-lock`}>{control.reason}</span>}
     </div>;})}</section>,
-  labels:[...plan.map((p,i)=><div className="arcade-ui arcade-bin-label dosage" key={p.id} style={{'--color':p.color}}><button className="dose-name" onClick={()=>showDetail(i)} aria-haspopup="dialog"><span className="color-key" aria-hidden="true"/>{p.name}</button><div className={`dose-amount ${p.dose?'':'empty'}`}>{p.dose?amount(p.dose):'Not included'}{p.dose>0&&<small>/ day</small>}</div><p className="ball-unit">1 ball = {amount(p.ballQuantity)}{p.id==='magnesium'?' elemental':''}</p></div>),...Array.from({length:2},(_,i)=><div className="arcade-ui arcade-bin-label arcade-bin-spare" key={`spare-${i}`}><span className="spare-name">Unassigned</span><span className="spare-dose" aria-hidden="true">—</span><span className="sr-only">Spare compartment. This blend uses the four existing supplements.</span></div>)],
-  footer:<footer className="arcade-ui arcade-footer"><div className="arcade-footer-caption" aria-hidden="true">FUEL A BRIGHTER YOU</div><div className="plan-note" aria-live="polite" aria-atomic="true"><span className="note-dot" aria-hidden="true"/><p>{notice}</p></div><div className="arcade-footer-meta"><span>Exploratory blend · Real quantities · Conservative caps</span><button className="text-button" onClick={()=>showDetail('rules')} aria-haspopup="dialog" title="Evidence & boundaries"><span className="footer-evidence-label">Evidence & boundaries</span><span className="footer-evidence-icon" aria-hidden="true">i</span><span className="footer-evidence-arrow" aria-hidden="true">↗</span></button></div></footer>
+  labels:[...plan.map((p,i)=><div className="arcade-ui arcade-bin-label dosage" key={p.id} style={{'--color':p.color}}><button className="dose-name" onClick={()=>showDetail(i)} aria-haspopup="dialog" aria-controls="blend-details" aria-expanded={detail===i}><span className="color-key" aria-hidden="true"/>{p.name}</button><div className={`dose-amount ${p.dose?'':'empty'}`}>{p.dose?amount(p.dose):'Not included'}{p.dose>0&&<small>/ day</small>}</div><p className="ball-unit">1 ball = {amount(p.ballQuantity)}{p.id==='magnesium'?' elemental':''}</p></div>),...Array.from({length:2},(_,i)=><div className="arcade-ui arcade-bin-label arcade-bin-spare" key={`spare-${i}`}><span className="spare-name">Unassigned</span><span className="spare-dose" aria-hidden="true">—</span><span className="sr-only">Spare compartment. This blend uses the four existing supplements.</span></div>)],
+  footer:<footer className="arcade-ui arcade-footer"><div className="arcade-footer-caption" aria-hidden="true">FUEL A BRIGHTER YOU</div><div className="plan-note" aria-live="polite" aria-atomic="true"><span className="note-dot" aria-hidden="true"/><p>{notice}</p></div><div className="arcade-footer-meta"><span>Exploratory blend · Healthy adult assumptions · Intake & medicines unchecked</span><button className="text-button" onClick={()=>showDetail('rules')} aria-haspopup="dialog" aria-controls="blend-details" aria-expanded={detail==='rules'} title="Evidence & boundaries"><span className="footer-evidence-label">Evidence & boundaries</span><span className="footer-evidence-icon" aria-hidden="true">i</span><span className="footer-evidence-arrow" aria-hidden="true">↗</span></button></div></footer>
  };
  return <div className="arcade-app">
   <div className="arcade-zoom-toolbar"><button type="button" aria-pressed={zoomed} aria-controls="arcade-cabinet-scroll-port" onClick={()=>setZoomed(value=>!value)}>{zoomed?'Fit cabinet':'Zoom cabinet'}</button></div>
   <div id="arcade-cabinet-scroll-port" ref={scrollPort} className={`arcade-scroll-port ${zoomed?'arcade-scroll-port-zoomed':''}`} role="region" aria-label="Scrollable cabinet" tabIndex={zoomed?0:-1} onFocusCapture={keepControlVisible}>
   <main className="arcade-viewport" aria-label="Equilibrium arcade supplement planner"><ArcadeScene plan={plan} reducedMotion={reducedMotion} overlays={overlays}/></main>
   </div>
-  <div className="detail" ref={popover} popover="auto" role="dialog" aria-label={info?`${info.name} evidence`:'Blend boundaries'} onToggle={event=>{if(event.newState==='closed')setDetail(null);}}>
+  <div className="detail" id="blend-details" ref={popover} popover="auto" role="dialog" aria-label={info?`${info.name} evidence`:'Blend boundaries'} onToggle={event=>{if(event.newState==='closed')closeDetails();}}>
    <button className="close" aria-label="Close details" onClick={()=>popover.current.hidePopover()}>×</button>
    {info?<>
     <h2>{info.name}</h2><p>{info.portionNote}</p>

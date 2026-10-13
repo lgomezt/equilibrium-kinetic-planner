@@ -2,9 +2,13 @@ import supplementData from './data/supplements.json' with {type:'json'};
 import safetyData from './data/safety.json' with {type:'json'};
 
 export const GOALS=Object.freeze(['sleep','memory','focus','strength','calm','energy']);
-export const CATALOG=supplementData.supplements;
-export const SAFETY=safetyData;
-export function isDoseAllowed(){return true;}
+const immutable=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(immutable);Object.freeze(value);}return value;};
+export const CATALOG=immutable(supplementData.supplements);
+export const SAFETY=immutable(safetyData);
+const effectiveCap=(supplement,constraint)=>Math.min(supplement.cap,...[constraint?.plannerCap,constraint?.establishedUpperLimit,...(constraint?.additionalLimits??[]).map(l=>l.value)].filter(Number.isFinite));
+export function isDoseAllowed(supplement,dose,constraint){
+ return Number.isFinite(dose)&&dose>=0&&dose<=effectiveCap(supplement,constraint)&&dose%supplement.ballQuantity===0;
+}
 const DEFAULT={sleep:2,memory:1,focus:3,strength:3,calm:1,energy:2};
 // Invented gameplay targets and weights, never clinical effect magnitudes.
 const TARGET=[0,.7,1.7,2.7,3.7,4.7];
@@ -27,7 +31,12 @@ function normalize(priorities){
 const candidates=[];
 function enumerate(doses=[]){
  const index=doses.length;
- if(index<CATALOG.length){for(const tier of CATALOG[index].tiers)enumerate([...doses,tier]);return;}
+ if(index<CATALOG.length){
+  const supplement=CATALOG[index],constraint=SAFETY.constraints.find(c=>c.id===supplement.id);
+  if(!constraint)throw new Error(`Missing safety constraint: ${supplement.id}`);
+  for(const tier of supplement.tiers)if(isDoseAllowed(supplement,tier,constraint))enumerate([...doses,tier]);
+  return;
+ }
  const coverage=Object.fromEntries(GOALS.map(g=>[g,0]));
  let cost=0;
  doses.forEach((dose,i)=>{
@@ -87,6 +96,7 @@ export function getControls(state){
 export function toPlan(state){
  return CATALOG.map((supplement,bin)=>{
   const origin=state.lastGoal??supplement.benefits.reduce((best,b)=>state.priorities[b.goal]*(b.gameWeight)>state.priorities[best]*(supplement.benefits.find(v=>v.goal===best)?.gameWeight??0)?b.goal:best,supplement.benefits[0].goal);
-  return {...supplement,bin,balls:state.counts[bin],dose:state.counts[bin]*supplement.ballQuantity,origin:GOALS.indexOf(origin),safety:SAFETY.constraints.find(c=>c.id===supplement.id)};
+  const safety=SAFETY.constraints.find(c=>c.id===supplement.id);
+  return {...supplement,cap:effectiveCap(supplement,safety),bin,balls:state.counts[bin],dose:state.counts[bin]*supplement.ballQuantity,origin:GOALS.indexOf(origin),safety};
  });
 }

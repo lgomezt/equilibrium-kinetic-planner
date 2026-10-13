@@ -17,10 +17,15 @@ const ease = value => value * value * (3 - 2 * value);
 const hermite = (u, a, b) => (-2 + a + b) * u ** 3 + (3 - 2 * a - b) * u ** 2 + a * u;
 
 export function heapPosition(bin, slot) {
-  let row = 0, column = slot, count = 6;
-  if (slot >= 11) {row = 2; column = slot - 11; count = 4;}
-  else if (slot >= 6) {row = 1; column = slot - 6; count = 5;}
-  return new Vector3(binCenters[bin] + (column - (count - 1) / 2) * .335, -2.675 + row * .29, row % 2 ? .06 : -.12);
+  // Pair-first ordering keeps partial rows balanced without moving survivors.
+  // Fixed slots use each compound's actual capacity, not a generic wide row.
+  let row = 0, offsets;
+  if (bin === 0) {
+    if (slot >= 11) {row = 2; offsets = [0]; slot -= 11;}
+    else if (slot >= 6) {row = 1; offsets = [0, -1, 1, -2, 2]; slot -= 6;}
+    else offsets = [-.5, .5, -1.5, 1.5, -2.5, 2.5];
+  } else offsets = bin === 1 ? [-1, 1, 0] : [-.5, .5, -1.5, 1.5];
+  return new Vector3(binCenters[bin] + offsets[slot] * .335, -2.675 + row * .29, row % 2 ? .06 : -.12);
 }
 
 /** Persistent physical inventory. Only a smaller desired count initiates an exit. */
@@ -46,7 +51,7 @@ export function createInventory({reducedMotion = false, initialPlan = null} = {}
 
   function setPlan(plan) {
     currentPlan = plan ?? {entries: []};
-    const entries = new Map((currentPlan.entries ?? []).map(entry => [entry.id, entry]));
+    const entries = new Map((Array.isArray(currentPlan) ? currentPlan : currentPlan.entries ?? []).map(entry => [entry.id, entry]));
     counts = IDS.map((id, bin) => clamp(Math.trunc(Number(entries.get(id)?.balls) || 0), 0, CAPS[bin]));
     for (const body of [...bodies.values()]) {
       if (body.slot < counts[body.bin]) {
