@@ -1,0 +1,96 @@
+{
+  "source": "User-supplied reference.jpg",
+  "source_sha256": "ba6cd8102672aedeac431cbc0f34a826175921ab4cb5357fc9e7b57e1d85c119",
+  "crop_xyxy_exclusive": [
+    246,
+    164,
+    346,
+    256
+  ],
+  "crop_xywh": [
+    246,
+    164,
+    100,
+    92
+  ],
+  "mask_polygon_source_coordinates": [
+    [
+      299,
+      168
+    ],
+    [
+      314,
+      170
+    ],
+    [
+      328,
+      176
+    ],
+    [
+      337,
+      187
+    ],
+    [
+      341,
+      200
+    ],
+    [
+      342,
+      214
+    ],
+    [
+      337,
+      229
+    ],
+    [
+      328,
+      242
+    ],
+    [
+      313,
+      250
+    ],
+    [
+      296,
+      252
+    ],
+    [
+      280,
+      247
+    ],
+    [
+      267,
+      239
+    ],
+    [
+      257,
+      228
+    ],
+    [
+      251,
+      216
+    ],
+    [
+      252,
+      202
+    ],
+    [
+      257,
+      189
+    ],
+    [
+      267,
+      178
+    ],
+    [
+      282,
+      170
+    ]
+  ],
+  "mask_exclusion": "Only blue globe pixels inside traced silhouette: B>1.12R and B>1.10G and B>48 excludes all gold foreground ring/back ring/control plaque. Distance-to-invalid interior feather 0.5 to 3px. No RGB edits, synthesis, edge bleed, or other object sampling. Enclosed holes in that mask are filled only within the manually verified upper-left globe highlight (source x264\u2013288/y172\u2013194); this restores original white highlight RGB, not ring pixels.",
+  "nonzero_alpha_pixels": 4794,
+  "opaque_pixels": 3764,
+  "maximum_material_blend": 0.9,
+  "geometry": "All positions/normals/colors/indices and measured crater relief unchanged; standard UV only is replaced.",
+  "highlight_pixels_restored": 50
+}

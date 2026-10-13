@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600">
+  <defs>
+    <linearGradient id="room" x2="0" y2="1"><stop stop-color="#151b31"/><stop offset=".6" stop-color="#090e1d"/><stop offset="1" stop-color="#060a13"/></linearGradient>
+    <linearGradient id="blue" x2="1" y2="1"><stop stop-color="#287ce8"/><stop offset=".45" stop-color="#212966"/><stop offset="1" stop-color="#060f29"/></linearGradient>
+    <linearGradient id="purple" x2="1" y2="1"><stop stop-color="#501e60"/><stop offset=".6" stop-color="#261631"/><stop offset="1" stop-color="#111321"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="light"><feGaussianBlur stdDeviation="20"/></filter>
+    <linearGradient id="habit-sign" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#203bba"/><stop offset=".52" stop-color="#14275f"/><stop offset="1" stop-color="#101731"/></linearGradient>
+    <filter id="habit-panel-soft" x="-25%" y="-15%" width="150%" height="130%"><feGaussianBlur stdDeviation="2.4"/></filter>
+    <filter id="habit-letter-light" x="-40%" y="-30%" width="180%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5.2" result="glow"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="core"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="core"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1600" height="1600" fill="url(#room)"/>
+  <g filter="url(#light)" opacity=".36">
+    <path d="M60 0v1240" stroke="#287ffc" stroke-width="24"/>
+    <path d="M1542 50v1220" stroke="#bd338f" stroke-width="20"/>
+    <ellipse cx="104" cy="590" rx="125" ry="370" fill="#153973"/>
+    <ellipse cx="1520" cy="680" rx="125" ry="350" fill="#461c4b"/>
+  </g>
+  <g filter="url(#soft)" opacity=".64">
+    <g transform="translate(-62 12) rotate(-5 130 350)">
+      <path d="M4 0h195l56 794-46 282H0Z" fill="#050913" stroke="#52637c" stroke-width="6"/>
+      <path d="M21 520l194-26 26 196-224 63Z" fill="#132746" stroke="#778499" stroke-width="5"/>
+      <path d="M36 537l166-20 18 152-184 47Z" fill="url(#blue)"/>
+      <path d="M38 776l169-49 5 254-179 49Z" fill="#0e1321"/>
+      <path d="M66 764h35M144 744h32" stroke="#d85024" stroke-width="13"/>
+    </g>
+    <g transform="translate(1460 31) rotate(5 100 360)">
+      <path d="M0 0h199v1090H13l-31-300Z" fill="#050811" stroke="#536074" stroke-width="6"/>
+      <path d="M22 23h153l-9 421H3Z" fill="url(#purple)"/>
+      <path d="M30 54h137M13 431h148" stroke="#ca3656" stroke-width="9"/>
+      <path d="M61 199l18 30 28-8-20 30 20 25-35-6-18 24 2-34-29-12 29-9Z" fill="#f2ac37"/>
+      <path d="M2 519l168 14 17 179-199-20Z" fill="#201634" stroke="#818394" stroke-width="5"/>
+      <path d="M8 539l153 15 7 139-173-21Z" fill="url(#purple)"/>
+      <path d="M4 756l168 5v244H17Z" fill="#0b101b"/>
+      <path d="M37 786h34M115 789h30" stroke="#bc236d" stroke-width="12"/>
+    </g>
+  </g>
+  <!-- At the 1212x1280 cover crop, these four lines center at x49,
+       with baselines 94/127/160/193. Local glow avoids lifting the room. -->
+  <g id="left-habit-sign" opacity=".98">
+    <path d="M57.5 68.75L151.25 81.25L156.25 258.75L55 282.5Z" fill="url(#habit-sign)" stroke="#304fa9" stroke-width="4" filter="url(#habit-panel-soft)"/>
+    <g fill="#e6f6ff" font-family="Arial,sans-serif" font-size="34" font-weight="bold" text-anchor="middle" filter="url(#habit-letter-light)">
+      <text x="103.75" y="117.5" textLength="78" lengthAdjust="spacingAndGlyphs">BETTER</text>
+      <text x="103.75" y="158.75" textLength="78" lengthAdjust="spacingAndGlyphs">HABITS</text>
+      <text x="103.75" y="200" textLength="78" lengthAdjust="spacingAndGlyphs">HIGHER</text>
+      <text x="103.75" y="241.25" textLength="75" lengthAdjust="spacingAndGlyphs">ORBITS</text>
+    </g>
+  </g>
+</svg>

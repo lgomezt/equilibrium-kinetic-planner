@@ -1,0 +1,31 @@
+:root{font-family:"Trebuchet MS",Arial,sans-serif;color:#ece4d2;background:#090f1c;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-width:320px}
+button,a{-webkit-tap-highlight-color:transparent}
+.material-study-page{min-height:100svh;display:flex;flex-direction:column;background:radial-gradient(ellipse at 50% 47%,#192439 0%,#101827 48%,#090f1c 85%)}
+.study-masthead{height:78px;margin:0 5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ddbd7420;flex-shrink:0}
+.study-brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#e9dfc9;font-size:19px;letter-spacing:-.5px}
+.study-brand svg{width:27px;height:27px;fill:none;stroke:#d6b96f;stroke-width:1.15}
+.study-brand:focus-visible{outline:2px solid #e3c780;outline-offset:8px;border-radius:2px}
+.study-edition{font-size:9px;letter-spacing:2.2px;color:#ada48f}
+.study-edition span{color:#806b48;padding:0 15px}
+.study-content{flex:1;display:flex;flex-direction:column;min-height:0}
+.study-heading{position:relative;z-index:1;text-align:center;padding:30px 16px 0}
+.study-eyebrow{font-size:9px;letter-spacing:3px;color:#d2b476;margin:0 0 9px}
+.study-eyebrow span{font-size:11px;padding:0 9px;color:#e3c780}
+.study-heading h1{font-size:clamp(32px,3.25vw,52px);letter-spacing:-2px;font-weight:700;line-height:1.1;margin:0;color:#f6ecd5;text-shadow:0 2px 0 #5e2626,0 5px 18px #0005}
+.study-subtitle{font-family:Georgia,serif;font-size:14px;line-height:1.5;color:#b9b3a7;margin:13px 0 0}
+.study-viewport{position:relative;width:100%;height:clamp(390px,64vh,760px);min-height:390px;flex:1}
+.study-viewport>div{position:absolute!important;inset:0}
+.study-description{font-family:Georgia,serif;text-align:center;color:#c1b7a2;font-size:13px;font-style:italic;letter-spacing:.15px;margin:0 16px 28px}
+.study-loading,.study-unavailable{position:absolute;left:10%;right:10%;top:45%;text-align:center;color:#c8bda3;font-size:14px}
+.study-footer{min-height:69px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 5%;border-top:1px solid #ddbd7420;flex-shrink:0;font-size:9px;letter-spacing:1.6px;color:#aaa28f}
+.study-footer p{margin:0}
+.study-footer p:nth-child(2){font-family:Georgia,serif;font-size:12px;letter-spacing:.3px}
+.study-footer p:nth-child(2) span{padding:0 8px;color:#7d6642}
+.study-status-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:#e3bb67;margin-right:9px;box-shadow:0 0 7px #efad5330}
+.study-footer-divider{color:#78653f;margin:0 13px}
+.study-footer-note{color:#847e71;letter-spacing:.3px;font-size:11px}
+@media(min-width:1700px){.study-content{max-width:1800px;width:100%;margin:auto}}
+@media(max-width:700px){.study-masthead{height:62px}.study-brand{font-size:16px}.study-edition{font-size:7px;letter-spacing:1px}.study-edition span{padding:0 5px}.study-heading{padding-top:28px}.study-eyebrow{font-size:7px;letter-spacing:1.6px}.study-subtitle{max-width:280px;margin:12px auto 0;font-size:12px}.study-viewport{min-height:330px;height:52vh}.study-description{font-size:11px;max-width:260px;margin:0 auto 25px;line-height:1.7}.study-footer{min-height:78px;justify-content:center;flex-wrap:wrap;gap:10px;padding:15px 0;font-size:8px}.study-footer p:nth-child(2){font-size:11px}.study-footer-note{display:none}}
+@media(max-height:780px) and (min-width:701px){.study-masthead{height:58px}.study-heading{padding-top:20px}.study-heading h1{font-size:40px}.study-viewport{min-height:340px}.study-description{margin-bottom:18px}.study-footer{min-height:54px}}

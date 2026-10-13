@@ -1,0 +1,62 @@
+{
+  "width": 384,
+  "height": 320,
+  "samplesPerPixel": 32,
+  "maxDistance": 1.25,
+  "floorY": 0.081,
+  "originY": 0.099,
+  "extent": {
+    "minX": -8.448,
+    "maxX": 8.448,
+    "minZ": -9.96,
+    "maxZ": 4.08
+  },
+  "rays": 3932160,
+  "hitCount": 843091,
+  "elapsedSeconds": 9.187,
+  "min": 1,
+  "mean": 234.32688802083334,
+  "triangles": 328762,
+  "excluded": {
+    "moving": 270,
+    "transparent": 86,
+    "artwork": 10,
+    "far": 1481
+  },
+  "texture_sha256": "1bb1dc4ffc1242395de037b00827f3339742c61e8b4616418997478604537e53",
+  "texture_bytes": 59204,
+  "receiver": "printed-celestial-enamel only",
+  "aoMapIntensity": 0.4,
+  "linear_data": true,
+  "filter": "offline Gaussian radius .65 texel",
+  "bake_geometry_source": "frozen main-width-060-work snapshot, main trough width .60; no reference pixels used",
+  "receiver_uv_corners": {
+    "0,1": [
+      -8.448,
+      0.081,
+      -9.96
+    ],
+    "1,1": [
+      8.448,
+      0.081,
+      -9.96
+    ],
+    "0,0": [
+      -8.448,
+      0.081,
+      4.08
+    ],
+    "1,0": [
+      8.448,
+      0.081,
+      4.08
+    ]
+  },
+  "included_fixed_mesh_instances": 816,
+  "included_geometry_manifest_sha256": "0d7871a6e99c995e9629ff87bfda65911e7f664ba0dc58dfddd17efae86beb9f",
+  "source": "Offline rays against actual fixed cabinet geometry; no reference pixels or moving marbles used.",
+  "bake_script": "artifacts/astra-round2/playfield-contact-work/bake-static-contact.cjs",
+  "scope": "One static printed-celestial-enamel plane; sampled indirect contact occlusion only.",
+  "main_rail_width": 0.6,
+  "bake_script_sha256": "fc3a3d31025ea90c4f801dfb1740603abc414e766a603176ffe87cde56899b2f"
+}

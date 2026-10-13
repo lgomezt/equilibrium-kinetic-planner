@@ -1,0 +1,754 @@
+{
+  "source": "User-supplied reference.jpg",
+  "sourcePath": "/workspace/artifacts/astra-round2/reference.jpg",
+  "sourceSha256": "ba6cd8102672aedeac431cbc0f34a826175921ab4cb5357fc9e7b57e1d85c119",
+  "sourceDimensions": [
+    1212,
+    1280
+  ],
+  "comparisonImage": "polish-walnut.png",
+  "comparisonSha256": "d5e17ae8c5616afdde614b6e57a24fd6de08d9fe78dcce5bdb9797e9ed438231",
+  "purpose": "Potential surface artwork on existing opaque 3D decorative rocks; not backgrounds, alpha-cutout geometry or replacement scene images. Assets only; no runtime integration.",
+  "maskMethod": "Manually inspected conservative object-interior polygon in reference pixel coordinates. Pixel-center point-in-polygon test; 2-pixel smoothstep feather strictly inward from polygon boundary. No expansion, edge borrowing, color modification, inpainting or synthesized surface.",
+  "colorContract": "Every pixel with nonzero alpha has RGB byte-identical to that pixel in the original reference crop. Fully excluded pixels are [0,0,0,0].",
+  "limitations": [
+    "Photographic lighting is baked into original RGB and fits only the calibrated reference view.",
+    "Masks intentionally leave out uncertain limbs, occluded parts and external contact shadows; use native material wherever alpha is zero.",
+    "Per-ID source bounds are ledger annotations, not a promise that the entire annotated box contains only the object. The RGBA mask provides the actual usable region.",
+    "Low native source resolution is retained. Inspection enlargements use nearest-neighbor scaling and are not replacement high-resolution artwork."
+  ],
+  "assets": [
+    {
+      "id": "DECOR-014",
+      "semantic_name": "foreground small moon",
+      "asset": "DECOR-014-surface.png",
+      "alphaMask": "DECOR-014-mask.png",
+      "referenceBBoxXYXY": [
+        99,
+        1203,
+        153,
+        1273
+      ],
+      "cropXYWH": [
+        99,
+        1203,
+        54,
+        70
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          108,
+          1210
+        ],
+        [
+          116,
+          1209
+        ],
+        [
+          125,
+          1211
+        ],
+        [
+          134,
+          1217
+        ],
+        [
+          140,
+          1224
+        ],
+        [
+          146,
+          1230
+        ],
+        [
+          148,
+          1238
+        ],
+        [
+          146,
+          1247
+        ],
+        [
+          139,
+          1254
+        ],
+        [
+          127,
+          1260
+        ],
+        [
+          118,
+          1261
+        ],
+        [
+          115,
+          1255
+        ],
+        [
+          111,
+          1240
+        ],
+        [
+          105,
+          1224
+        ],
+        [
+          103,
+          1217
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 1543,
+      "opaquePixels": 1276,
+      "cropPixels": 3780,
+      "excludedRegions": "Large foreground moon along left occlusion boundary; navy playfield around the companion; dark contact shadow below it; nearby cabinet hardware. No inferred hidden hemisphere.",
+      "inspectionFiles": [
+        "DECOR-014-artwork-contact-native.png",
+        "DECOR-014-mask-boundary-native.png",
+        "DECOR-014-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-015",
+      "semantic_name": "cratered playfield asteroid 1",
+      "asset": "DECOR-015-surface.png",
+      "alphaMask": "DECOR-015-mask.png",
+      "referenceBBoxXYXY": [
+        224,
+        156,
+        268,
+        200
+      ],
+      "cropXYWH": [
+        224,
+        156,
+        44,
+        44
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          240,
+          160
+        ],
+        [
+          250,
+          160
+        ],
+        [
+          260,
+          165
+        ],
+        [
+          265,
+          172
+        ],
+        [
+          267,
+          177
+        ],
+        [
+          262,
+          183
+        ],
+        [
+          258,
+          187
+        ],
+        [
+          253,
+          195
+        ],
+        [
+          246,
+          197
+        ],
+        [
+          236,
+          193
+        ],
+        [
+          229,
+          186
+        ],
+        [
+          227,
+          177
+        ],
+        [
+          229,
+          169
+        ],
+        [
+          233,
+          165
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 1030,
+      "opaquePixels": 829,
+      "cropPixels": 1936,
+      "excludedRegions": "Overlapping violet Saturn globe at lower right; navy playfield; red/gold header above; all ambiguous silhouette antialiasing. The masked area ends before the globe overlap.",
+      "inspectionFiles": [
+        "DECOR-015-artwork-contact-native.png",
+        "DECOR-015-mask-boundary-native.png",
+        "DECOR-015-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-016",
+      "semantic_name": "cratered playfield asteroid 2",
+      "asset": "DECOR-016-surface.png",
+      "alphaMask": "DECOR-016-mask.png",
+      "referenceBBoxXYXY": [
+        337,
+        143,
+        375,
+        181
+      ],
+      "cropXYWH": [
+        337,
+        143,
+        38,
+        38
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          348,
+          148
+        ],
+        [
+          355,
+          146
+        ],
+        [
+          363,
+          149
+        ],
+        [
+          369,
+          154
+        ],
+        [
+          373,
+          161
+        ],
+        [
+          371,
+          168
+        ],
+        [
+          364,
+          173
+        ],
+        [
+          357,
+          172
+        ],
+        [
+          352,
+          170
+        ],
+        [
+          343,
+          170
+        ],
+        [
+          338,
+          165
+        ],
+        [
+          337,
+          158
+        ],
+        [
+          342,
+          153
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 679,
+      "opaquePixels": 510,
+      "cropPixels": 1444,
+      "excludedRegions": "Gold Saturn ring at lower left/bottom; red/gold header and lamp above; navy playfield around the rock. The lower polygon turns upward before the ring.",
+      "inspectionFiles": [
+        "DECOR-016-artwork-contact-native.png",
+        "DECOR-016-mask-boundary-native.png",
+        "DECOR-016-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-017",
+      "semantic_name": "cratered playfield asteroid 3",
+      "asset": "DECOR-017-surface.png",
+      "alphaMask": "DECOR-017-mask.png",
+      "referenceBBoxXYXY": [
+        237,
+        274,
+        289,
+        326
+      ],
+      "cropXYWH": [
+        237,
+        274,
+        52,
+        52
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          252,
+          283
+        ],
+        [
+          263,
+          279
+        ],
+        [
+          269,
+          279
+        ],
+        [
+          280,
+          282
+        ],
+        [
+          285,
+          285
+        ],
+        [
+          288,
+          292
+        ],
+        [
+          288,
+          299
+        ],
+        [
+          282,
+          308
+        ],
+        [
+          278,
+          314
+        ],
+        [
+          271,
+          319
+        ],
+        [
+          258,
+          321
+        ],
+        [
+          247,
+          317
+        ],
+        [
+          242,
+          310
+        ],
+        [
+          241,
+          301
+        ],
+        [
+          244,
+          291
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 1494,
+      "opaquePixels": 1245,
+      "cropPixels": 2704,
+      "excludedRegions": "Orange/red neighboring assembly at lower right; gold/red fitting below left; navy playfield and surrounding shadows. Only the central gray cratered surface remains.",
+      "inspectionFiles": [
+        "DECOR-017-artwork-contact-native.png",
+        "DECOR-017-mask-boundary-native.png",
+        "DECOR-017-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-018",
+      "semantic_name": "cratered playfield asteroid 4",
+      "asset": "DECOR-018-surface.png",
+      "alphaMask": "DECOR-018-mask.png",
+      "referenceBBoxXYXY": [
+        1012,
+        147,
+        1048,
+        183
+      ],
+      "cropXYWH": [
+        1012,
+        147,
+        36,
+        36
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          1019,
+          155
+        ],
+        [
+          1027,
+          154
+        ],
+        [
+          1034,
+          157
+        ],
+        [
+          1040,
+          163
+        ],
+        [
+          1042,
+          169
+        ],
+        [
+          1038,
+          174
+        ],
+        [
+          1030,
+          178
+        ],
+        [
+          1021,
+          177
+        ],
+        [
+          1015,
+          173
+        ],
+        [
+          1013,
+          166
+        ],
+        [
+          1014,
+          160
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 506,
+      "opaquePixels": 369,
+      "cropPixels": 1296,
+      "excludedRegions": "Red/gold header above; rocket/fin at lower left; dark right-side structure; navy playfield and all uncertain limb pixels.",
+      "inspectionFiles": [
+        "DECOR-018-artwork-contact-native.png",
+        "DECOR-018-mask-boundary-native.png",
+        "DECOR-018-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-019",
+      "semantic_name": "cratered playfield asteroid 5",
+      "asset": "DECOR-019-surface.png",
+      "alphaMask": "DECOR-019-mask.png",
+      "referenceBBoxXYXY": [
+        1010,
+        323,
+        1062,
+        375
+      ],
+      "cropXYWH": [
+        1010,
+        323,
+        52,
+        52
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          1021,
+          335
+        ],
+        [
+          1030,
+          328
+        ],
+        [
+          1036,
+          325
+        ],
+        [
+          1046,
+          325
+        ],
+        [
+          1053,
+          329
+        ],
+        [
+          1059,
+          335
+        ],
+        [
+          1061,
+          344
+        ],
+        [
+          1060,
+          352
+        ],
+        [
+          1055,
+          360
+        ],
+        [
+          1048,
+          366
+        ],
+        [
+          1039,
+          369
+        ],
+        [
+          1028,
+          366
+        ],
+        [
+          1020,
+          361
+        ],
+        [
+          1016,
+          354
+        ],
+        [
+          1014,
+          346
+        ],
+        [
+          1016,
+          340
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 1522,
+      "opaquePixels": 1270,
+      "cropPixels": 2704,
+      "excludedRegions": "Bright diagonal rail edge below right; navy playfield; external contact shadow below. No rail highlight is included.",
+      "inspectionFiles": [
+        "DECOR-019-artwork-contact-native.png",
+        "DECOR-019-mask-boundary-native.png",
+        "DECOR-019-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-020",
+      "semantic_name": "cratered playfield asteroid 6",
+      "asset": "DECOR-020-surface.png",
+      "alphaMask": "DECOR-020-mask.png",
+      "referenceBBoxXYXY": [
+        175,
+        552,
+        213,
+        590
+      ],
+      "cropXYWH": [
+        175,
+        552,
+        38,
+        38
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          184,
+          561
+        ],
+        [
+          191,
+          556
+        ],
+        [
+          196,
+          556
+        ],
+        [
+          204,
+          560
+        ],
+        [
+          209,
+          565
+        ],
+        [
+          210,
+          572
+        ],
+        [
+          205,
+          579
+        ],
+        [
+          198,
+          583
+        ],
+        [
+          187,
+          583
+        ],
+        [
+          178,
+          579
+        ],
+        [
+          176,
+          573
+        ],
+        [
+          178,
+          567
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 670,
+      "opaquePixels": 509,
+      "cropPixels": 1444,
+      "excludedRegions": "Cream/metal plaque edge above; red/cream/gold neighboring assembly at right; navy playfield and bottom contact shadow.",
+      "inspectionFiles": [
+        "DECOR-020-artwork-contact-native.png",
+        "DECOR-020-mask-boundary-native.png",
+        "DECOR-020-context-native.png"
+      ]
+    },
+    {
+      "id": "DECOR-021",
+      "semantic_name": "cratered playfield asteroid 7",
+      "asset": "DECOR-021-surface.png",
+      "alphaMask": "DECOR-021-mask.png",
+      "referenceBBoxXYXY": [
+        1121,
+        586,
+        1165,
+        630
+      ],
+      "cropXYWH": [
+        1121,
+        586,
+        44,
+        44
+      ],
+      "sourcePolygonReferencePixels": [
+        [
+          1133,
+          591
+        ],
+        [
+          1140,
+          589
+        ],
+        [
+          1147,
+          591
+        ],
+        [
+          1155,
+          597
+        ],
+        [
+          1158,
+          603
+        ],
+        [
+          1159,
+          611
+        ],
+        [
+          1155,
+          618
+        ],
+        [
+          1149,
+          622
+        ],
+        [
+          1140,
+          624
+        ],
+        [
+          1132,
+          619
+        ],
+        [
+          1127,
+          612
+        ],
+        [
+          1126,
+          603
+        ],
+        [
+          1128,
+          597
+        ]
+      ],
+      "softInteriorFeatherPixels": 2,
+      "sourceRgbUnmodified": true,
+      "excludedRGBA": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "nonzeroAlphaPixels": 851,
+      "opaquePixels": 661,
+      "cropPixels": 1936,
+      "excludedRegions": "Cream/gold/red neighboring mechanism along left; dark walnut/cabinet edge at right; navy playfield and bottom contact shadow.",
+      "inspectionFiles": [
+        "DECOR-021-artwork-contact-native.png",
+        "DECOR-021-mask-boundary-native.png",
+        "DECOR-021-context-native.png"
+      ]
+    }
+  ]
+}

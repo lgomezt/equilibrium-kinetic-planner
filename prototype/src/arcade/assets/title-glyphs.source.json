@@ -1,0 +1,97 @@
+{
+  "referenceSource": "/workspace/artifacts/astra-round2/reference.jpg",
+  "sourceGlyphBounds": [
+    440,
+    81,
+    844,
+    159
+  ],
+  "confirmedWarmSourcePixels": 16345,
+  "cssImageBounds": [
+    -3.0,
+    10.0,
+    483.0,
+    73.0
+  ],
+  "assetPixels": [
+    966,
+    146
+  ],
+  "projectionAssumptions": {
+    "headerBox": [
+      420,
+      105.1
+    ],
+    "h1Box": [
+      420,
+      83.1
+    ],
+    "pairs": [
+      {
+        "css": [
+          -100,
+          -30
+        ],
+        "screen": [
+          360.97391478229525,
+          37.414790463544634
+        ]
+      },
+      {
+        "css": [
+          600,
+          -30
+        ],
+        "screen": [
+          940.6686417595239,
+          37.414790463544634
+        ]
+      },
+      {
+        "css": [
+          600,
+          140
+        ],
+        "screen": [
+          966.340783391944,
+          228.1490574185382
+        ]
+      },
+      {
+        "css": [
+          -100,
+          140
+        ],
+        "screen": [
+          342.1781760173044,
+          228.1490574185382
+        ]
+      }
+    ]
+  },
+  "method": "Title-only original-reference RGB mask; only alpha is changed during source isolation. Confirmed enclosed counters and background are transparent. Final inverse-perspective warp uses bicubic interpolation, so final PNG RGB is resampled rather than byte-identical to source RGB. No lettering, bulbs, stars or navy plate was synthesized.",
+  "sourceSHA256": "ba6cd8102672aedeac431cbc0f34a826175921ab4cb5357fc9e7b57e1d85c119",
+  "assetSHA256": "c1101399f24df12bc13b2e7ed132c6be35df6d7ace715215eabce1d68053b8a1",
+  "assetBytes": 142977,
+  "sourcePixelContract": {
+    "unwarpedMaskRGB": "Unchanged original reference RGB at retained source coordinates",
+    "finalPNG": "Inverse-warped bicubic RGB/alpha interpolation expected",
+    "transparentCounters": [
+      "A",
+      "little e",
+      "balance b",
+      "balance first a",
+      "balance second a",
+      "balance e"
+    ],
+    "transparentWordGap": true,
+    "excluded": [
+      "bulbs",
+      "stars",
+      "navy marquee plate",
+      "interactive UI"
+    ]
+  },
+  "repositoryAsset": "src/arcade/assets/title-glyphs.png",
+  "repositoryProvenance": "src/arcade/assets/title-glyphs.source.json"
+}

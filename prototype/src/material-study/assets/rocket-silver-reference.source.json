@@ -1,0 +1,122 @@
+{
+  "source": "User-supplied reference.jpg",
+  "source_sha256": "ba6cd8102672aedeac431cbc0f34a826175921ab4cb5357fc9e7b57e1d85c119",
+  "crop_xywh": [
+    920,
+    154,
+    105,
+    83
+  ],
+  "mask_polygon_source_coordinates": [
+    [
+      940,
+      157
+    ],
+    [
+      959,
+      161
+    ],
+    [
+      978,
+      168
+    ],
+    [
+      996,
+      179
+    ],
+    [
+      1011,
+      194
+    ],
+    [
+      1022,
+      204
+    ],
+    [
+      1011,
+      214
+    ],
+    [
+      998,
+      234
+    ],
+    [
+      983,
+      226
+    ],
+    [
+      967,
+      217
+    ],
+    [
+      948,
+      204
+    ],
+    [
+      931,
+      191
+    ],
+    [
+      923,
+      181
+    ],
+    [
+      923,
+      173
+    ],
+    [
+      935,
+      169
+    ]
+  ],
+  "window_exclusion_polygon": [
+    [
+      956,
+      175
+    ],
+    [
+      963,
+      169
+    ],
+    [
+      976,
+      168
+    ],
+    [
+      991,
+      177
+    ],
+    [
+      1000,
+      190
+    ],
+    [
+      1002,
+      202
+    ],
+    [
+      992,
+      211
+    ],
+    [
+      980,
+      213
+    ],
+    [
+      965,
+      206
+    ],
+    [
+      956,
+      193
+    ],
+    [
+      954,
+      183
+    ]
+  ],
+  "mask": "Conservative silver-body polygon only; enlarged hole excludes real red/gold rim and blue glass window. Silver color gate R<1.35B and G>.75R also excludes stray red nose/fin/collar or warm edge. Inward 0.5 to3px feather; original RGB, zero RGBA outside. No source plume, background, star or other parts.",
+  "nonzero_alpha_pixels": 2355,
+  "maximum_blend": 0.82,
+  "scope": "Silver body lathe only; native separate nose/fins/collar/window/star/plume retained."
+}

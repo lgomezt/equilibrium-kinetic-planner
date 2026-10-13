@@ -1,0 +1,30 @@
+{
+  "width": 384,
+  "height": 512,
+  "mapping": "CubeUVReflectionMapping",
+  "colorSpace": "LinearSRGBColorSpace",
+  "flipY": false,
+  "captureLocal": [
+    0,
+    3.2000000000000006,
+    1
+  ],
+  "boxMin": [
+    -9.5,
+    -3.5,
+    -10
+  ],
+  "boxMax": [
+    9.5,
+    8,
+    14
+  ],
+  "name": "cabinet",
+  "resolution": 128,
+  "captureMs": 23328.59999999404,
+  "texturesBefore": 22,
+  "texturesAfter": 26,
+  "gpuSynchronized": true,
+  "omittedMovingTransmissiveOrFuelObjects": 80,
+  "retainedTexturesAfterCleanup": 24
+}

@@ -1,0 +1,78 @@
+{
+  "source": "User-supplied reference.jpg",
+  "sourceSha256": "ba6cd8102672aedeac431cbc0f34a826175921ab4cb5357fc9e7b57e1d85c119",
+  "sourceDimensions": [
+    1212,
+    1280
+  ],
+  "cropXYXY": [
+    0,
+    1152,
+    118,
+    1280
+  ],
+  "safeInteriorPolygonReferencePixels": [
+    [
+      0,
+      1157
+    ],
+    [
+      13,
+      1160
+    ],
+    [
+      27,
+      1165
+    ],
+    [
+      41,
+      1173
+    ],
+    [
+      54,
+      1182
+    ],
+    [
+      66,
+      1194
+    ],
+    [
+      78,
+      1210
+    ],
+    [
+      88,
+      1229
+    ],
+    [
+      98,
+      1250
+    ],
+    [
+      106,
+      1273
+    ],
+    [
+      107,
+      1279
+    ],
+    [
+      0,
+      1279
+    ]
+  ],
+  "processing": "Original source RGB for original valid moon region; up to6px seam allowance reuses nearest verified lunar edge color. No synthesized colors or other scene pixels.",
+  "purpose": "Surface artwork on existing foreground moon geometry, not a background or replacement scene.",
+  "blend": {
+    "referenceSurfaceColor": 0.92,
+    "nativeMaterialLighting": 0.08
+  },
+  "backAndOutsideCrop": "Existing native material remains.",
+  "limitations": "Photographic shading is baked into the artwork and intended for the calibrated fixed viewing direction. Mobile/reframed areas outside crop fall back to native material.",
+  "saturnFeasibility": "Possible, but its foreground ring must be masked separately to avoid painting gold ring pixels onto globe; not implemented.",
+  "edgeBleed": {
+    "maxDistancePixels": 6,
+    "fullCoverageThroughPixels": 4,
+    "method": "Nearest-neighbor color extension from verified interior lunar texels only, followed by2px alpha feather; no background/ring/companion pixels sampled."
+  }
+}

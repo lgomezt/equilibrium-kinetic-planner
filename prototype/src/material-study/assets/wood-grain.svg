@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="512" viewBox="0 0 1200 512">
+  <title>Dark polished walnut</title>
+  <desc>Fine drawn walnut grain in restrained near-black brown, with continuous long streaks and subdued growth contours.</desc>
+  <defs>
+    <linearGradient id="walnut" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241711"/>
+      <stop offset=".26" stop-color="#2c1d15"/>
+      <stop offset=".65" stop-color="#1c130f"/>
+      <stop offset="1" stop-color="#251912"/>
+    </linearGradient>
+    <pattern id="fine" width="1200" height="128" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke-linecap="round">
+        <path d="M-30 7q156-10 322 0T615 4t308 2 307 1M-30 34q126-9 270-3t239 4 302-7 449 5M-30 73q142 7 294-3t286 4 335-3 345 0M-30 110q148-6 301 1t246-4 305 5 408-3" stroke="#5d3a25" stroke-width="1.2" opacity=".42"/>
+        <path d="M-30 11q159-8 326 0T621 8t310 3 299 0M-30 42q146-6 278-3t244 4 286-4 422 1M-30 80q132 7 290-3t297 4 325-3 348 0M-30 116q138-7 291 1t250-4 303 5 416-3" stroke="#0c0907" stroke-width="1.5" opacity=".8"/>
+        <path d="M-30 18q150-7 312-1t303-6 276 4 369 2M-30 49q148-7 261-3t295 6 245-8 421 4M-30 89q154 5 304-4t261 2 299 0 412-2M-30 123q143-5 281 0t302-1 272 3 421-2" stroke="#66462e" stroke-width=".7" opacity=".28"/>
+        <path d="M-30 22q150-7 312-1t303-6 276 4 369 2M-30 60q142-5 254-3t312 4 266-7 386 4M-30 97q139 4 288-4t301 2 316 0 316-2" stroke="#100b08" stroke-width="2.1" opacity=".56"/>
+        <path d="M68 28q106-4 207-1M495 25q124-5 227-3M877 22q105 5 229 1M113 55q83-4 161-2M718 55q107-6 172-4M293 65q122 4 240-1M995 66q70-3 137-2M81 104q89-5 161-2M503 103q93-5 203-1M858 101q124 5 264-1" stroke="#8d6541" stroke-width=".6" opacity=".27"/>
+      </g>
+    </pattern>
+  </defs>
+  <rect width="1200" height="512" fill="url(#walnut)"/>
+  <rect width="1200" height="512" fill="url(#fine)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M-30 195c211-9 320 10 437 17s158 26 234 27 178-24 246-26 193-1 343-12M-30 202c211-9 315 12 432 19s166 31 240 29 171-24 242-30 196-2 345-12" stroke="#593923" stroke-width="1.4" opacity=".38"/>
+    <path d="M-30 216c236-11 354 14 467 22s150 28 221 29 151-27 226-33 195-3 346-11M-30 221c229-9 348 15 459 23s153 31 229 32 153-26 226-34 203-3 356-13" stroke="#0b0806" stroke-width="2.2" opacity=".69"/>
+    <path d="M-30 243c218-8 349 15 454 24s155 27 226 24 162-27 238-34 200-5 342-9" stroke="#6a452a" stroke-width=".9" opacity=".27"/>
+    <path d="M451 243c51 0 111-15 157-8s55 20 106 20M472 249c59 2 85-9 126-5s49 13 88 14M480 268c67 2 88 14 126 15s49-15 83-17" stroke="#0f0b08" stroke-width="1.6" opacity=".8"/>
+    <path d="M573 254c18-11 42-10 66 0-21 13-46 14-66 0Z" fill="#120d09" stroke="#53351f" stroke-width="1.1" opacity=".62"/>
+    <path d="M-30 358c200 2 349-15 476-5s177 24 267 21 228-13 517-10M-30 366c206 3 352-12 481-3s176 24 267 21 230-15 512-10" stroke="#533720" stroke-width="1" opacity=".36"/>
+    <path d="M-30 375c210 3 359-12 485-3s176 24 267 21 230-15 508-10" stroke="#0c0907" stroke-width="2.2" opacity=".6"/>
+    <path d="M-30 433c222-10 283-26 394-22s199 22 307 26 264-22 559-11M-30 439c222-9 284-25 392-21s201 22 309 26 264-22 559-10" stroke="#68462a" stroke-width=".8" opacity=".31"/>
+  </g>
+</svg>

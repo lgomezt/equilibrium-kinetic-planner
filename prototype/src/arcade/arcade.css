@@ -1,0 +1,238 @@
+@font-face {
+ font-family:"Cabinet Marquee";
+ src:url("./fonts/OpenSans-ExtraBold-Latin.ttf") format("truetype");
+ font-style:normal;font-weight:800;font-display:swap;
+}
+:root {
+ font-family:"Trebuchet MS",Arial,sans-serif;
+ color:#f1e6cb;
+ background:#090e19;
+ font-synthesis:none;
+ text-rendering:optimizeLegibility;
+ -webkit-font-smoothing:antialiased;
+ color-scheme:dark;
+}
+* {box-sizing:border-box}
+html,body,#root {width:100%;height:100%;margin:0}
+body {min-width:320px;overflow:hidden}
+button,a {-webkit-tap-highlight-color:transparent}
+.arcade-app {
+ width:100%;height:100svh;min-height:320px;
+ background:radial-gradient(ellipse at 50% 43%,#263447 0%,#162030 37%,#0a101b 77%);
+ position:relative;isolation:isolate;
+}
+.arcade-viewport {position:absolute;inset:0}
+.arcade-viewport>div {width:100%;height:100%}
+.arcade-viewport canvas {display:block;outline:none}
+.arcade-ui {font-family:"Trebuchet MS",Arial,sans-serif;user-select:none}
+.arcade-ui button {font:inherit;color:inherit;cursor:pointer;padding:0}
+.arcade-ui button:disabled {cursor:default}
+.arcade-ui button:focus-visible,.detail button:focus-visible,.detail a:focus-visible {
+ outline:2px solid #ae691e;outline-offset:3px;border-radius:3px;
+}
+.arcade-marquee {width:560px;text-align:center;color:#fff0cd;padding:3px 0 5px}
+.arcade-marquee h1 {
+ margin:0 0 10px;font-size:60px;line-height:1.08;letter-spacing:-2px;font-weight:900;
+ -webkit-text-stroke:.45px #f8d296;
+ text-shadow:-1px 1px 0 #aa2928,1px 1px 0 #aa2928,-2px 3px 0 #b3312a,2px 3px 0 #b3312a,0 5px 0 #891f25,0 7px 0 #4b1420,0 9px 8px #0007;
+}
+.arcade-marquee p {font-family:"Trebuchet MS",Arial,sans-serif;font-size:13px;font-weight:700;line-height:1.5;letter-spacing:.05px;margin:0;color:#e8cc82}
+.reference-marquee-print {width:420px;padding:0}
+.reference-marquee-print .arcade-arched-title {
+ margin:0 0 6px;padding:0 0 18px;font-family:"Cabinet Marquee","Trebuchet MS",Arial,sans-serif;font-size:62px;font-weight:800;line-height:1.05;letter-spacing:-1.8px;white-space:nowrap;transform:translateX(-20px) scale(.75,1.2);transform-origin:50% 50%;
+ color:#fff3d9;-webkit-text-stroke:.55px #f7d69c;
+ text-shadow:0 -.35px 0 #fffdf0,-1px 1px 0 #ec7050,1px 1px 0 #d75b3c,-2px 3px 0 #bb3428,2px 3px 0 #b32b27,0 4px 0 #a12224,0 5px 0 #8b1920,0 6px 0 #66141c,0 7px 0 #431018,0 9px 7px #0008;
+}
+.reference-marquee-print .arcade-arched-title {position:relative}
+.reference-marquee-print .arcade-title-artwork {position:absolute;left:-3px;top:10px;width:483px;height:73px;max-width:none;pointer-events:none;opacity:0}
+.reference-marquee-print .arcade-title-artwork-ready>span {visibility:hidden}
+.reference-marquee-print .arcade-title-artwork-ready>.arcade-title-artwork {opacity:1}
+.reference-marquee-print .arcade-arched-title>span {display:inline-block;white-space:pre;transform:translateY(var(--title-lift)) rotate(var(--title-tilt));transform-origin:50% 75%}
+.reference-marquee-print p {max-width:390px;margin:0 auto;font-size:12px;line-height:16px;letter-spacing:0;color:#ebcd7c}
+.reference-branding-print .arcade-brand {width:180px;color:#f7ebd0;font-style:normal;text-shadow:0 .7px 0 #ae8952,0 1.5px 1px #071426}
+.reference-branding-print .arcade-brand span {font-size:23.5px;letter-spacing:-.5px;white-space:nowrap;transform:matrix(.965,0,.114,1.5,0,0);transform-origin:center}
+.reference-branding-print .arcade-brand svg {stroke:#edcf94;transform:matrix(1.40,0,.152,2,0,0);transform-origin:center}
+.reference-branding-print .arcade-motto {height:58px;color:#f0dfb5;text-shadow:0 .7px 0 #a88145,0 1.5px 1px #071426;transform:matrix(.78,0,-.051,1.25,0,0);transform-origin:center}
+.reference-branding-print .arcade-motto span {width:110px;font-size:15px;line-height:16.5px}
+.reference-branding-print .arcade-motto strong {font-size:15.75px;line-height:18px;white-space:nowrap;transform:scaleX(.98);transform-origin:left center}
+.arcade-brand {width:150px;height:46px;display:flex;justify-content:center;align-items:center;gap:7px;color:#efdfb6}
+.arcade-brand svg {width:27px;height:27px;fill:none;stroke:#e4d2a4;stroke-width:1.2;flex:none}
+.arcade-brand span {font-size:20px;font-weight:700;letter-spacing:-.65px}
+.arcade-motto {width:166px;height:43px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding-left:18px;color:#e6c777;gap:1px;letter-spacing:.7px}
+.arcade-motto span {width:74px;font-size:10px;font-weight:700;line-height:11px}
+.arcade-motto strong {font-size:10.5px;line-height:12px;letter-spacing:.6px;font-weight:700}
+.arcade-controls {
+ width:458.9066286px;height:170px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+ padding:16px 0 0;color:#142235;gap:0;
+}
+.arcade-controls .goal {display:flex;flex-direction:column;align-items:center;min-width:0;position:relative}
+.arcade-controls .goal-name {font-size:14px;font-weight:700;letter-spacing:0;line-height:18px;margin:0 0 10px;color:#192739;transform:scaleX(.70);transform-origin:center}
+.arcade-controls .battery {
+ width:20px;height:48px;flex:none;position:relative;border-radius:7px / 4px;padding:3px 2px;display:flex;flex-direction:column-reverse;gap:0;
+ background:linear-gradient(90deg,#454f59,#dde0dd 20%,#fff9e9 35%,#bdc3c7 57%,#68747e 83%,#d8dad6);
+ border:1px solid #626c73;box-shadow:inset 0 0 0 1px #fff9,1px 2px 2px #27324760;
+}
+.arcade-controls .battery:before {
+ content:"";position:absolute;top:-5px;left:6px;width:6px;height:4px;border-radius:2px 2px 0 0;
+ background:linear-gradient(90deg,#697580,#d2d6d7,#707b85);border:1px solid #77818b;border-bottom:none;
+}
+.arcade-controls .segment {
+ flex:1;min-height:0;width:100%;border-radius:1px;
+ background:linear-gradient(90deg,#4f5963,#bdc4c9 22%,#e5e6e2 39%,#a3adb4 67%,#53606b);
+ border:0;box-shadow:inset 0 1px 0 #f8f4e9a6,inset 0 -1px 0 #384652c7;
+}
+.arcade-controls .segment.on {
+ background:linear-gradient(90deg,#8d9aa5,#f5f3e9 29%,#fffaf0 40%,#ced4d6 67%,#82909b);
+ box-shadow:inset 0 1px 0 #fff9,inset 0 -1px 0 #687580b3;
+}
+.arcade-controls .priority-controls {display:flex;align-items:center;gap:4px;margin-top:6px}
+.arcade-controls .stepper {
+ width:32px;height:36px;margin:-8px;flex:none;position:relative;isolation:isolate;border:0;border-radius:50%;display:grid;place-items:center;
+ font-family:Arial,sans-serif;font-size:14px;line-height:1;font-weight:400;
+ background:transparent;color:#273444;
+ transition:filter .12s,transform .12s;
+}
+/* The visible silver face retains its reference dimensions; the native
+   button extends into the clear space around it for pointer/touch input. */
+.arcade-controls .stepper::before {
+ content:"";position:absolute;inset:8px;z-index:-1;border:1px solid #7c858e;border-radius:50%;
+ background:radial-gradient(circle at 32% 23%,#fff9e8,#e7e5da 35%,#b9bdc0 72%,#68747e);
+ box-shadow:inset 0 1px 1px #ffffffd9,inset 0 -2px 2px #6773858c,0 2px 3px #1a293c4c;
+}
+.arcade-controls .stepper:hover:not(:disabled):not(.blocked) {filter:brightness(1.13);transform:translateY(-1px)}
+.arcade-controls .stepper:active:not(:disabled):not(.blocked) {transform:translateY(1px)}
+.arcade-controls .stepper:active:not(:disabled):not(.blocked)::before {box-shadow:inset 0 1px 3px #25374d55}
+.arcade-controls .stepper:disabled,.arcade-controls .stepper.blocked {opacity:.76}
+.arcade-controls .stepper.blocked {cursor:help}
+.arcade-controls .level {font-size:9px;min-width:20px;color:#5c6267;text-align:center;font-variant-numeric:tabular-nums}
+.arcade-controls .level strong {font-size:14px;font-weight:700;color:#233449}
+@font-face {
+ font-family:"Cabinet Bin Labels";
+ src:url("./fonts/NimbusSansNarrow-Bold-Latin.woff") format("woff");
+ font-style:normal;font-weight:700;font-display:swap;
+}
+.arcade-bin-label {
+ width:78px;height:35px;text-align:center;display:flex;align-items:center;flex-direction:column;justify-content:center;
+ padding:2px 1px;color:#15273b;font-family:"Cabinet Bin Labels",Arial,sans-serif;
+}
+.arcade-bin-label .dose-name {
+ border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:4px;
+ font-size:9px;font-weight:700;line-height:12px;white-space:nowrap;flex-shrink:0;
+}
+.arcade-bin-label .dose-name:hover {color:#8d2d30}
+.arcade-bin-label .color-key {width:5px;height:5px;flex:none;border-radius:50%;background:var(--color);box-shadow:0 1px 1px #17263822,inset 0 1px 0 #fffa}
+.arcade-bin-label .dose-amount {font-size:8.5px;line-height:12px;font-weight:700;letter-spacing:0;margin-top:1px;font-variant-numeric:tabular-nums;white-space:nowrap;flex-shrink:0}
+.arcade-bin-label .dose-amount small {font-size:7px;line-height:1;letter-spacing:0;font-weight:400;margin-left:2px;color:#5e6467}
+.arcade-bin-label .dose-amount.empty {font-size:9px;font-weight:400;letter-spacing:0;color:#626970}
+.arcade-bin-label .ball-unit {font-size:6.8px;line-height:8px;color:#5e6264;margin:2px 0 0;white-space:nowrap;flex-shrink:0}
+.arcade-bin-label .color-key,.arcade-bin-label .dose-amount small,.arcade-bin-label .ball-unit {
+ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+ clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;
+}
+.arcade-bin-spare {color:#747b80}
+.arcade-bin-spare .spare-name {font-size:9px;line-height:12px;font-weight:700}
+.arcade-bin-spare .spare-dose {font-size:8.5px;line-height:12px;margin-top:1px}
+.arcade-footer {width:196px;height:26px;min-height:26px;padding:0 22px;color:#142d50;display:flex;flex-direction:row;align-items:center;justify-content:center;position:relative}
+.arcade-footer-caption {display:flex;align-items:center;justify-content:center;gap:5px;font-size:9.5px;font-weight:700;line-height:14px;letter-spacing:.1px;white-space:nowrap}
+.arcade-footer-caption::before {content:"→";font-size:12px;line-height:14px}
+.arcade-footer-caption::after {content:"←";font-size:12px;line-height:14px}
+.arcade-footer .plan-note {display:flex;justify-content:center;align-items:center;gap:0;min-height:0;text-align:center}
+.arcade-footer .plan-note p {font-size:7.5px;line-height:9px;margin:0;max-width:244px}
+.arcade-footer .note-dot {display:none;width:5px;height:5px;border-radius:50%;background:#e8b65c;flex:none;box-shadow:0 0 4px #f5ac4855}
+.arcade-footer-meta {position:absolute;right:12px;top:2px;display:flex;align-items:center;justify-content:center;border:0;padding:0;margin:0;gap:0;font-size:7px;line-height:9px;letter-spacing:0;color:#354d65}
+.arcade-footer-meta>span {flex:1;min-width:0}
+.arcade-footer .plan-note,.arcade-footer-meta>span,.arcade-footer .footer-evidence-label {
+ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+ clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;
+}
+.arcade-footer .text-button {width:22px;height:22px;border:1px solid #516178;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff3d7,#e6d9bb);color:#142d50;font-size:14px;font-weight:700;line-height:20px;padding:0;flex:none;box-shadow:inset 0 1px 1px #fff9,0 1px 1px #142d5026}
+.arcade-footer .text-button:hover {color:#8d2d30;border-color:#8d2d30}
+.arcade-footer .text-button .footer-evidence-icon {display:block;font-family:Georgia,serif;font-size:15px;font-style:italic;line-height:19px}
+.arcade-footer .text-button .footer-evidence-arrow {display:none;position:relative;width:9px;height:9px;margin-left:4px;padding:0;font-size:0;vertical-align:1px;border-top:1.3px solid currentColor;border-right:1.3px solid currentColor}
+.arcade-footer .text-button .footer-evidence-arrow::after {content:"";position:absolute;right:-1px;top:3px;width:11px;height:1.3px;background:currentColor;transform:rotate(-45deg)}
+.detail {
+ position:fixed;inset:auto 24px 24px auto;margin:0;z-index:20;
+ width:380px;max-width:calc(100vw - 28px);max-height:calc(100svh - 40px);overflow:auto;
+ color:#20334a;background:#f4eddcf8;border:1px solid #cbb484;border-radius:9px;
+ box-shadow:0 18px 65px #0007,0 2px 8px #0004,inset 0 0 0 3px #e6dac257;
+ padding:25px 26px;font-family:"Trebuchet MS",Arial,sans-serif;scrollbar-width:thin;color-scheme:light;
+}
+.detail::backdrop {background:#07101c4d;backdrop-filter:blur(2px)}
+.detail h2 {font-size:22px;font-weight:700;letter-spacing:-.6px;color:#152a43;margin:0 0 13px;line-height:1.25;padding-right:8px}
+.detail p {font-size:12px;line-height:1.65;margin:10px 0;color:#415066}
+.detail p strong {color:#27384d;font-weight:700}
+.detail .meta {font-size:10px;line-height:1.6;color:#7c6848;margin:12px 0}
+.detail a {display:inline-block;margin:5px 9px 0 0;color:#892e36;font-size:11px;line-height:1.6;text-decoration-color:#b98063;text-underline-offset:3px}
+.detail a:hover {color:#4f1520;text-decoration-color:currentColor}
+.detail .close {position:absolute;top:9px;right:12px;padding:0 3px;border:0;background:none;color:#746451;font-family:Arial,sans-serif;font-size:25px;line-height:1;cursor:pointer}
+.detail .rule {height:1px;background:#d9cbaa;margin:16px 0}
+.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.arcade-loading,.arcade-unavailable {position:absolute;inset:45% 8% auto;text-align:center;font-size:14px;line-height:1.7;color:#d8cbaa}
+.arcade-fallback {
+ width:100%;height:100%;overflow:auto;display:flex;flex-direction:column;align-items:center;
+ padding:clamp(24px,5vh,54px) 22px 32px;gap:22px;color:#ded2b6;
+ background:radial-gradient(ellipse at 50% 24%,#263447,#0a101b 83%);
+}
+.arcade-fallback>div {flex:none;max-width:100%}
+.arcade-fallback>p {font-family:Georgia,serif;font-size:13px;line-height:1.6;margin:0;text-align:center;color:#b9ae97}
+.arcade-fallback .arcade-marquee {max-width:100%;padding:12px 0}
+.arcade-fallback .arcade-marquee h1 {font-size:clamp(32px,6vw,46px)}
+.arcade-fallback .arcade-marquee p {font-size:13px;max-width:430px;margin:auto}
+.arcade-fallback-controls {
+ width:560px;padding:12px 8px;border:2px solid #b09257;border-radius:12px;
+ background:linear-gradient(140deg,#f2e7cd,#ddcba9);box-shadow:0 7px 18px #0004,inset 0 0 0 3px #faf2df65;
+}
+.arcade-fallback .arcade-controls {width:100%;height:155px;padding:10px 0}
+.arcade-fallback .goal-name {font-size:14px}
+.arcade-fallback .priority-controls {gap:3px;margin-top:7px}
+.arcade-fallback .battery {width:32px;height:65px}
+.arcade-fallback .battery:before {left:9px;width:12px}
+.arcade-fallback .stepper {width:28px;height:28px;margin:0;font-size:21px}
+.arcade-fallback .stepper::before {inset:0}
+.arcade-fallback .level {font-size:10px;min-width:23px}
+.arcade-fallback .level strong {font-size:13px}
+.arcade-fallback-labels {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;width:560px}
+.arcade-fallback-labels .arcade-bin-label {
+ width:100%;height:90px;padding:10px 3px;border:1px solid #baa071;border-radius:5px;
+ background:linear-gradient(145deg,#f6edda,#e1d2b5);box-shadow:0 3px 7px #0003;
+}
+.arcade-fallback .color-key,.arcade-fallback .dose-amount small,.arcade-fallback .ball-unit {
+ position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;
+ clip:auto;clip-path:none;white-space:normal;border:0;
+}
+.arcade-fallback .color-key {width:5px;height:5px}
+.arcade-fallback .dose-amount small {font-size:9px;margin-left:2px;white-space:nowrap}
+.arcade-fallback .dose-name,.arcade-fallback .spare-name {font-size:10px;line-height:16px}
+.arcade-fallback .dose-amount {font-size:19px;line-height:24px;margin-top:6px}
+.arcade-fallback .dose-amount.empty {font-size:10px}
+.arcade-fallback .spare-dose {font-size:16px;line-height:18px;margin-top:2px}
+.arcade-fallback .ball-unit {font-size:8px;line-height:11px;margin:2px 0 0;white-space:normal;max-width:100%}
+.arcade-fallback .arcade-footer {width:530px;max-width:100%;height:auto;min-height:74px;padding:0;color:#eee0bf;position:static;flex-direction:column;align-items:stretch;flex:none}
+.arcade-fallback .arcade-footer-caption {display:none}
+.arcade-fallback .plan-note,.arcade-fallback .arcade-footer-meta>span,.arcade-fallback .text-button .footer-evidence-label {
+ position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;
+ clip:auto;clip-path:none;white-space:normal;border:0;
+}
+.arcade-fallback .plan-note {gap:6px;min-height:34px}
+.arcade-fallback .note-dot {display:block}
+.arcade-fallback .plan-note p {font-size:12px;line-height:18px;max-width:444px}
+.arcade-fallback .arcade-footer-meta {position:static;justify-content:space-between;border-top:1px solid #ddbd7440;font-size:9px;line-height:1.6;padding-top:13px;margin-top:10px;align-items:flex-start;gap:12px;letter-spacing:.1px;color:#cec3a7}
+.arcade-fallback .text-button {width:auto;height:auto;display:block;border:0;border-radius:0;background:none;box-shadow:none;font-size:11px;font-weight:400;line-height:1.6;padding:0 2px;color:#ead1a0;white-space:nowrap}
+.arcade-fallback .text-button .footer-evidence-icon {display:none}
+.arcade-fallback .text-button .footer-evidence-label,.arcade-fallback .text-button .footer-evidence-arrow {display:inline-block}
+.arcade-fallback .text-button:hover {color:#fff0cd}
+@media(max-width:640px) {.detail {inset:auto 14px 14px auto;padding:22px;max-height:calc(100svh - 28px)}.arcade-app {background:radial-gradient(ellipse at 50% 45%,#253246,#0a101b 78%)}}
+@media(max-width:560px) {
+ .arcade-fallback {padding:24px 14px;gap:19px}
+ .arcade-fallback-controls {padding:10px 6px}
+ .arcade-fallback .arcade-controls {grid-template-columns:repeat(3,minmax(0,1fr));height:auto;row-gap:23px;padding:13px 2px}
+ .arcade-fallback-labels {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .arcade-fallback-labels .arcade-bin-label {height:96px;padding-top:12px}
+ .arcade-fallback .dose-name,.arcade-fallback .spare-name {font-size:12px}
+ .arcade-fallback .ball-unit {font-size:9px;max-width:100%}
+ .arcade-fallback .arcade-footer-meta {flex-direction:column;align-items:center;text-align:center;gap:8px}
+}
+@media(prefers-reduced-motion:reduce) {.arcade-ui * {transition:none!important;animation:none!important}.detail::backdrop {backdrop-filter:none}}
+
+/* Keep separately committed projected labels hidden until their matrices settle. */
+.arcade-canvas[data-cabinet-ready="false"] .arcade-projected-overlay .arcade-ui {visibility:hidden}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1400" viewBox="0 0 1600 1400">
+  <title>Midnight celestial silkscreen</title>
+  <desc>Rich dark navy lacquer with composed warm gold stars, subtle blue hand-painted wisps and a few faded orbital marks. The raised planets, rocket and cratered asteroids are separate dimensional cabinet artwork.</desc>
+  <defs>
+    <radialGradient id="navy" cx="43%" cy="34%" r="80%"><stop stop-color="#132e56"/><stop offset=".43" stop-color="#0c2347"/><stop offset=".8" stop-color="#071b3a"/><stop offset="1" stop-color="#06132b"/></radialGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff0b5"/><stop offset=".40" stop-color="#e6bd64"/><stop offset="1" stop-color="#a97636"/></linearGradient>
+    <g id="star"><path d="M0-24 4-6 17-15 8-3 23 0 8 3 17 15 4 6 0 24-4 6-17 15-8 3-23 0-8-3-17-15-4-6Z" fill="#9a6e38"/><path d="M0-21 3-4 15-12 5-2 19 0 5 2 15 12 3 4 0 21-3 4-15 12-5 2-19 0-5-2-15-12-3-4Z" fill="url(#ink)"/></g>
+    <g id="small"><path d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#d6b36d"/></g>
+    <g id="pin"><circle r="1.7" fill="#bd9f64"/></g>
+  </defs>
+  <rect width="1600" height="1400" fill="url(#navy)"/>
+  <g fill="none" stroke="#315381" stroke-linecap="round" opacity=".12">
+    <path d="M17 87q112 37 125 114t-38 156 61 178M30 115q85 47 79 112t-21 132 43 144" stroke-width="8"/>
+    <path d="M1489 41q-74 79-49 162t83 157-46 166M1520 67q-55 85-26 157t38 117-39 148" stroke-width="11"/>
+    <path d="M6 838q70-22 146 8t9 177-5 219M28 868q81-22 103 31t-8 141 12 188" stroke-width="8"/>
+    <path d="M1428 1226q-74-75-25-142t115-189M1455 1240q-47-62-17-113t99-211" stroke-width="10"/>
+  </g>
+  <g fill="none" stroke="#6580a2" opacity=".13" stroke-width="1.5">
+    <ellipse cx="448" cy="1072" rx="117" ry="33" transform="rotate(-31 448 1072)"/><circle cx="448" cy="1072" r="57"/>
+    <path d="M1061 133a139 139 0 0 1 191 103M1243 317a139 139 0 0 1-211-71"/>
+  </g>
+
+
+
+
+
+  <use href="#small" transform="translate(113 326)"/><use href="#small" transform="translate(547 123)"/><use href="#small" transform="translate(869 267)"/><use href="#small" transform="translate(1394 140)"/><use href="#small" transform="translate(376 498)"/><use href="#small" transform="translate(787 531)"/><use href="#small" transform="translate(1182 564)"/><use href="#small" transform="translate(1453 797)"/><use href="#small" transform="translate(616 817)"/><use href="#small" transform="translate(372 1090)"/><use href="#small" transform="translate(830 1183)"/><use href="#small" transform="translate(1218 1127)"/>
+  <use href="#pin" transform="translate(159 220)"/><use href="#pin" transform="translate(690 233)"/><use href="#pin" transform="translate(963 164)"/><use href="#pin" transform="translate(1337 386)"/><use href="#pin" transform="translate(472 327)"/><use href="#pin" transform="translate(947 609)"/><use href="#pin" transform="translate(319 758)"/><use href="#pin" transform="translate(723 650)"/><use href="#pin" transform="translate(1195 877)"/><use href="#pin" transform="translate(1407 960)"/><use href="#pin" transform="translate(780 1052)"/><use href="#pin" transform="translate(148 1103)"/><use href="#pin" transform="translate(1070 1314)"/>
+</svg>

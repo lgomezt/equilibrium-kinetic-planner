@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512">
+  <title>Painted violet lunar enamel</title>
+  <defs>
+    <linearGradient id="surface" x2="0" y2="1"><stop stop-color="#a399f4"/><stop offset=".3" stop-color="#7160dd"/><stop offset=".63" stop-color="#4e40b9"/><stop offset="1" stop-color="#24206d"/></linearGradient>
+    <radialGradient id="crater" cx="43%" cy="62%"><stop stop-color="#2d236d"/><stop offset=".74" stop-color="#3c3298"/><stop offset=".93" stop-color="#9282dd"/><stop offset="1" stop-color="#7365c4"/></radialGradient>
+    <g id="small"><ellipse rx="24" ry="22" fill="url(#crater)"/><path d="M-21-7q18-20 38-1" fill="none" stroke="#aaa5ea" stroke-width="3" opacity=".55"/></g>
+    <g id="large"><ellipse rx="43" ry="38" fill="url(#crater)"/><path d="M-37-13q33-30 66-1" fill="none" stroke="#aba4ed" stroke-width="4" opacity=".55"/><path d="M-29 18q20 17 48 3" fill="none" stroke="#30387f" stroke-width="6" opacity=".3"/></g>
+  </defs>
+  <rect width="1024" height="512" fill="url(#surface)"/>
+  <g fill="none" stroke="#b2a8ef" opacity=".12">
+    <path d="M0 96q128 20 256 0t256 0 256 0 256 0" stroke-width="15"/>
+    <path d="M0 301q128 30 256 0t256 0 256 0 256 0" stroke-width="26"/>
+    <path d="M0 414q128-17 256 0t256 0 256 0 256 0" stroke-width="8"/>
+  </g>
+  <use href="#small" transform="translate(83 156) rotate(15)"/><use href="#large" transform="translate(181 246) rotate(-18)"/>
+  <use href="#small" transform="translate(245 353) scale(.7)"/><use href="#small" transform="translate(287 171) scale(.6)"/>
+  <use href="#large" transform="translate(373 292) scale(.82)"/><use href="#small" transform="translate(429 106) scale(.62)"/>
+  <use href="#large" transform="translate(512 187) scale(1.1)"/><use href="#small" transform="translate(544 347)"/>
+  <use href="#small" transform="translate(641 263) scale(.82)"/><use href="#large" transform="translate(731 360) scale(.75)"/>
+  <use href="#large" transform="translate(805 195) rotate(-16)"/><use href="#small" transform="translate(895 278) scale(.7)"/>
+  <use href="#small" transform="translate(951 136) scale(.6)"/><use href="#small" transform="translate(999 368) scale(.7)"/>
+  <g fill="#a09ce8" opacity=".27"><ellipse cx="155" cy="153" rx="6" ry="4"/><ellipse cx="356" cy="211" rx="4" ry="3"/><ellipse cx="586" cy="256" rx="6" ry="4"/><ellipse cx="731" cy="123" rx="5" ry="3"/><ellipse cx="888" cy="367" rx="7" ry="5"/></g>
+</svg>
