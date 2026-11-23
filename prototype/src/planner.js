@@ -9,7 +9,6 @@ const effectiveCap=(supplement,constraint)=>Math.min(supplement.cap,...[constrai
 export function isDoseAllowed(supplement,dose,constraint){
  return Number.isFinite(dose)&&dose>=0&&dose<=effectiveCap(supplement,constraint)&&dose%supplement.ballQuantity===0;
 }
-const DEFAULT={sleep:2,memory:1,focus:3,strength:3,calm:1,energy:2};
 // Invented gameplay targets and weights, never clinical effect magnitudes.
 const TARGET=[0,.7,1.7,2.7,3.7,4.7];
 const title=g=>g[0].toUpperCase()+g.slice(1);
@@ -58,7 +57,7 @@ function solve(priorities,current=null,direction=0){
  );
 }
 
-export function createGameState(priorities=DEFAULT){
+export function createGameState(priorities){
  const p=normalize(priorities),blend=solve(p);
  if(!blend)throw new RangeError('Incompatible priorities: no feasible blend under the caps and rest rules.');
  return freezeState(p,[...blend.counts]);

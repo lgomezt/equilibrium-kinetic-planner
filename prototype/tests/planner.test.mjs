@@ -12,6 +12,15 @@ const raise = (state,goal,level) => {
  return state;
 };
 
+test('a new game has zero of every supplement until the player increases a priority',()=>{
+ const state=createGameState();
+ assert.deepEqual(state.priorities,empty);
+ assert.deepEqual(toPlan(state).map(({balls,dose})=>[balls,dose]),[[0,0],[0,0],[0,0],[0,0]]);
+ const result=attemptChange(state,'strength',1);
+ assert.equal(result.accepted,true);
+ assert.ok(toPlan(result.state).find(p=>p.id==='creatine').balls>0);
+});
+
 test('a strength goal produces a complete creatine portion, not a multiplied priority dose',()=>{
  const state=raise(createGameState(empty),'strength',3);
  const entry=toPlan(state).find(p=>p.id==='creatine');
